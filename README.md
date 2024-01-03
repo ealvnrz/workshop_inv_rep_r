@@ -65,4 +65,4 @@
  
 # Presentación
 
-[Ver presentación en pantalla completa](https://htmlpreview.github.io/?https://github.com/ealvnrz/workshop_inv_rep_r/blob/main/main.html)
+[Ver presentación en pantalla completa](https://ealvnrz.github.io/workshop_inv_rep_r/)
