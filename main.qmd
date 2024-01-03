@@ -100,9 +100,135 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 
 ![](images/reproducible-definition-grid.svg){width=70% fig-align="center"}
 
+## Ventajas y dificultades
+
+| Ventajas | Dificultades |
+|----|----|
+| Historial completo del proyecto | Incentivos limitados |
+| Colaboración y Revisión | Sesgo de las investigaciones hacia hallazgos novedosos |
+| Evita la desinformación | Mayores estándares |
+| Escritura eficiente | Se aplican mayores estándares a las investigaciones reproducibles |
+| Reconocimiento justo | No es considerado para las promociones |
+| Asegura la continuidad del trabajo |  Variabilidad en el rendimiento de los software utilizados |
+| | Que una investigación sea reproducible no significa que esté correcta |
+| | Toma más tiempo|
 
 
 
+## Etapas de una Investigación Reproducible
+
+![](images/research-cycle.svg){width=70% fig-align="center"}
+
+## Ciencia Abierta
+
+![](images/evolution-open-research.png){width=60% fig-align="center"}
+
+["1.500 scientist lift the lid on reproducibility"](https://www.nature.com/articles/533452a)
+
+::: {.notes}
+La ciencia abierta u *open science* tiene por objetivo transformar la investigación haciéndola más reproducible, transparente, reutilizable, colaborativa, responsable y accesible para la sociedad. Para que la investigación sea considerada *abierta*, cada elemento del proceso de investigación debe:
+
+- Estar disponible públicamente: es difícil de usar y beneficiarse del conocimiento oculto detrás de barreras como contraseñas y muros de pago.
+
+- Ser reutilizable: los resultados de la investigación deben tener la licencia adecuada, de modo que los posibles usuarios conozcan las limitaciones de la reutilización.
+
+- Sea transparente: con metadatos apropiados para proporcionar declaraciones claras de cómo se produjo el resultado de la investigación y qué contiene.
+:::
+
+
+## Difusión y citas
+
+![](images/open-access-citations.jpg){width=70% fig-align="center"}
+
+## Datos Abiertos
+
+Solo una proporción muy pequeña de los datos originales se publica en revistas convencionales o investigaciones públicas. A pesar de las políticas existentes sobre el archivo de datos, en la actualidad, los datos se almacenan principalmente en archivos privados, no en repositorios institucionales seguros, y se pierde a ellos por parte del público general.
+
+Esta falta de intercambio de datos es un obstáculo para la investigación internacional (ya sea académica, gubernamental o comercial) por dos razones principales:
+
+- Generalmente es difícil o imposible reproducir un estudio sin los datos originales.
+
+- Los datos no pueden ser reutilizados o incorporados en nuevos trabajos por otros investigadores si no pueden acceder a ellos.
+
+## Barreras para el intercambio de datos
+
+![](images/data-privacy.png){width=70% fig-align="center"}
+
+::: {.notes}
+Muchos investigadores encuentran difícil compartir datos. Encuestas recientes realizadas entre investigadores enumeran las siguientes razones:
+
+- Organizar los datos de una manera presentable y útil es un desafío (mencionado por el 46 %)
+
+- Los investigadores no están seguros acerca de los derechos de autor y las licencias (mencionado por el 37 %)
+
+- Los investigadores no saben qué repositorio usar para diferentes tipos de datos (aumento del 33 %)
+
+:::
+
+## Software de Código abierto
+
+> Cuando un proyecto es de código abierto, cualquiera puede ver, usar, modificar y distribuir el proyecto para cualquier propósito. Estos permisos se aplican a través de una licencia de código abierto
+
+**¿Cómo los software de código abierto benefician la investigación?**
+
+
+
+::::{.columns}
+
+:::{.column}
+
+- **Re-usable**
+
+- **Comprobable**
+
+- **Colaborativo**
+
+:::
+
+:::{.column}
+
+![](images/tidylogo.png){width=60% fig-align="center"}
+:::
+::::
+
+
+
+## Espectro de Reproducibilidad
+
+![](images/Reproducible.png){width=60% fig-align="center"}
+
+
+# Sofware necesarios
+
+## R project
+
+![](images/R_logo.svg.png){width=40% fig-align="center"}
+
+[https://cran.dcc.uchile.cl/](https://cran.dcc.uchile.cl/)
+
+## RSudio IDE
+
+![](images/RStudio-Logo-Flat.png){width=60% fig-align="center"}
+
+[https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+> Existen otras alternativas más *génericas* como [Visual Studio Code](https://code.visualstudio.com/), un editor de código para múltiples lenguajes. Sin embargo, al no ser un software especializado en R, requiere utilizar extensiones para lograr las funcionalidad que otorga RStudio.
+
+## Quarto
+
+![](images/quarto.png){width=60% fig-align="center"}
+
+[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+
+## Git & Github
+
+![](images/git_github.png){width=45% fig-align="center"}
+
+- [https://git-scm.com/downloads](Git)
+
+- [https://cli.github.com/](Github CLI)
+
+- [https://desktop.github.com/](Github Desktop)
 
 
 
