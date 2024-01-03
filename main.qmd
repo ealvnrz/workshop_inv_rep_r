@@ -224,364 +224,275 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 
 ![](images/git_github.png){width=45% fig-align="center"}
 
-- [https://git-scm.com/downloads](Git)
+- [Git](https://git-scm.com/downloads)
 
-- [https://cli.github.com/](Github CLI)
+- [Github CLI](https://cli.github.com/)
 
-- [https://desktop.github.com/](Github Desktop)
+- [Github Desktop](https://desktop.github.com/)
 
+- [Repositorio para este curso](https://github.com/ealvnrz/workshop_inv_rep_r)
 
 
-## Example slide
+# Módulo 2: Control de versiones {background-color="#40666e"}
 
-### This is a subtitle
+## Conectar RStudio y Github
 
-Before we dive a bit deeper, here is a simple example of the
-[clean theme](https://github.com/grantmcdermott/quarto-revealjs-clean)
-in action. 
+1. Crear una cuenta en [GitHub](https://github.com/)
+2. Crear un token de acceso personal (PAT) en GitHub
 
-- No pictures or anything fancy. Just text for the moment.
-
-Next, we'll take a brief tour of some theme components.
-
-- We'll use the same basic
-structure as the
-[original LaTeX slides](https://raw.githack.com/kylebutts/templates/master/latex-slides/auxiliary/slides.pdf).
-- Note that the [_full suite_](https://quarto.org/docs/presentations/revealjs/)
-of Reveal.js features are available for this Quarto implementation,
-even if we don't cover everything here.
-
-
-## Before you proceed...
-
-### Requirements for the coding examples in this demo
-
-:::{.callout-note}
-## R libraries
-
-While the clean theme is language agnostic, we will use several R coding
-examples in this demo to highlight some advanced theme features.
-
-You will need the following libraries if you'd like to render the template
-"as-is":
-
-```{.r}
-123
-```
-:::
-
-
-:::{.callout-note}
-## TinyTex
-
-While reveal.js presentations are HTML format, we will show an example of how to 
-embed LaTeX tables as images. This requires a working Tex distribution, of which
-TinyTex provides by far the easiest and lightest integration with Quarto. More
-details [here](https://quarto.org/docs/output-formats/pdf-engine.html).
-
-```{.bash}
-quarto install tinytex
-```
-:::
-
-# Components {background-color="#40666e"}
-
-## Components
-
-### Ordered and Unordered Lists
-
-Here we have an unordered list.
-
-- first item
-    - sub-item
-- second item
-
-And next we have an ordered one.
-
-1. first item
-    i) sub-item
-2. second item
-
-## Components
-
-### Alerts & Cross-refs {#sec-crossref}
-
-To emphasize specific words or text, you can:
-
-- Use the default `.alert` class, e.g. [important note]{.alert}.
-- Use the `.fg` class for custom colour, e.g. [important note]{.fg style="--col: #e64173"}.
-- Use the `.bg` class for custom background, e.g. [important note]{.bg style="--col: #e64173"}.
-
-To cross-reference, you have several options, for example:
-
-- Beamer-like `.button` class provided by this theme, e.g. [[Appendix]{.button}](#sec-appendix)
-- Quarto's native cross-ref syntax, e.g., "See @sec-appendix."
-
-## Components
-
-### Citations
-
-Citations follow the standard
-[Quarto format](https://quarto.org/docs/authoring/footnotes-and-citations.html#citations)
-and be sourced from BibLaTex, BibTeX, or CLS files. For example:
-
- - [Topic 1:]{.alert} Spatial Frictions [@Fajgelbaum_Morales_Serrato_Zidar_2018; @Hsieh_Moretti_2019; @Moretti_2011]
-
-- [Topic 2:]{.alert} Blah [@Suárez_Serrato_Zidar_2016]
-
-## Components
-
-### Blocks
-
-Quarto provides
-[dedicated environments](https://quarto.org/docs/authoring/cross-references.html#theorems-and-proofs)
-for theorems, lemmas, and so forth. 
-
-But in presentation format, it's arguably more effective just to use a
-[Callout Block](https://quarto.org/docs/authoring/callouts.html).
-
-:::{.callout-note}
-## Regression Specification
-
-The main specification is as follows:
-
-$$
-y_{it} = X_{it} \beta + \mu_i + \varepsilon_{it}
-$$
-:::
-
-## Components
-
-### Multicolumn I: Text only
-
-:::: {.columns}
-
-::: {.column width="50%"}
-#### Column 1
-
-Here is a long sentence that will wrap onto the next line as it hits the column
-width, and continue this way until it stops.
-:::
-
-::: {.column width="50%"}
-#### Column 2
-
-Some other text in another column.
-
-A second paragraph.
-:::
-
-::::
-
-Multicolumn support is very flexible and we can continue with a single full
-span column in the same slide.
-
-## Components
-
-### Multicolumn II: Text and figures
-
-:::: {.columns}
-
-::: {.column width="50%"}
-![](images/kanagawa.jpg)
-:::
-
-::: {.column width="50%"}
-
-- A point about the figure that is potentially important.
-- Another point about the figure that is also potentially important.
-:::
-
-::::
-
-Note that sub- and multi-panel figures are also natively supported by Quarto.
-See [here](https://quarto.org/docs/authoring/figures.html#subfigures).
-
-## Components
-
-### Multicolumn III: Code and output
+. . .
 
 ```{r}
 #| echo: true
-#| label: fig-pairs
-#| fig-cap: "Pairwise scatterplot" 
-#| fig-asp: 1
-#| output-location: column
-
-
+#| eval: false
+library(usethis)
+create_github_token()
 ```
+3. Almacenar credenciales
 
-# Tables {background-color="#40666e"}
-
-## Tables
-
-### Regression example
-
-Quarto offers excellent
-[table support](https://quarto.org/docs/authoring/tables.html),
-with further customization via user libraries. Let's illustrate with a
-regression example:
+. . .
 
 ```{r}
 #| echo: true
-
-library(fixest)
-
-mods = feols(
-  rating ~ complaints + privileges + learning + csw0(raises + critical) + advance,
-  data = attitude
-)
-
-dict = c("rating"     = "Overall Rating",
-         "complaints" = "Handling of Complaints",
-         "privileges" = "No Special Priviledges",
-         "learning"   = "Opportunity to Learn",
-         "raises"     = "Performance-Based Raises",
-         "critical"   = "Too Critical",
-         "advance"    = "Advancement")
+#| eval: false
+library(gitcreds)
+gitcreds::gitcreds_set()
 ```
 
-## Regression table
+## RStudio 
 
-### modelsummary
+1. Tener un proyecto local
+2. Realizar un *commit* inicial
+3. Escribir:
 
-If you use `modelsummary` with this Quarto theme, we advise setting the `gt`
-backend for a cleaner aesthetic. More details
-[here](https://vincentarelbundock.github.io/modelsummary/articles/appearance.html).
+. . .
 
 ```{r}
 #| echo: true
-#| output-location: slide
-
-
+#| eval: false
+library(usethis)
+usethis::use_github()
 ```
+Esto creará un repositorio con el nombre del proyecto
 
-## Regression table
+4. Utilizando la interface en RStudio, podremos mantener el control de versiones.
 
-### etable
+## Control de versiones para datos
 
-`fixest`'s powerful native tabling functions were designed for LaTeX output. But we
-can use the `markdown = TRUE` option to make them work with this theme too. 
-(Details
-[here](https://lrberge.github.io/fixest/articles/etable_new_features.html).) Quick notes:
+![](images/data-provenance.jpg){width=60% fig-align="center"}
 
- - Install the `tinytex` & `pdftools` packages first.
- - Set the R chunk option `output: asis`. 
+## Importancia del control de versiones para datos
 
-````
-```{{r}}
-#| output: asis
+- Los datos utilizados en los análisis **no son estáticos**
 
-setFixest_etable(markdown = TRUE, drop = "Constant")
-setFixest_dict(dict)
+- Los datos pueden mutar **no sólo** debido a que se ingresa nueva información
 
-etable(mods, highlight = .("se" = "complaints"))
-```
-````
+- En muchas investigaciones se desea experimentar con diferentes versiones del mismo conjunto de datos
 
-## Regression table
+- Controlar las versiones de conjuntos de datos o de archivos grandes ayuda a la reproducibilidad de un proyecto
 
-### etable (cont.)
+## Desafíos en el control de versiones para datos
 
-```{r}
-#| output: asis
+La principal limitación que tiene [Git](https://git-scm.com/) es que conforme la cantidad y tamaño de los archivos en el proyecto crecen, se vuelve impracticable el control de versiones.
 
+- Usualmente un repositorio se considera *grande* cuando su tamaño es sobre 1 TB
 
-```
+## Herramientas en el control de versiones para datos
 
-# Figures {background-color="#40666e"}
+Entre las herramientas más usadas para el control de versiones para grandes archivos están:
 
-## Figure
+- [Data Version Control](https://dvc.org/): Particularmente útil cuando se trabaja con muchos modelos, pues puede registrar el desempeño de modelos pre-establecidos *commit* tras *commit*.
 
-![](images/kanagawa.jpg)
+. . .
 
-## Figure
+![](images/dvc.png){width=25% fig-align="center"}
 
-### Full-size Figures
+- [Git Large File Storage](https://git-lfs.com/): Tal como Git, pero desarrollado para ser escalable.
 
-You can use the `{.background-image}` container environment to completely fill
-the slide background with an image.
+. . .
 
-Ideally, your figure will be the same aspect ratio as the screen that you're presenting on.
+![](images/glfs.png){width=40% fig-align="center"}
 
-- This can be a bit tricky because of the dynamic nature of reveal.js / HTML. But it's probably something close to 16:9.
-- Aspect ratio can also matter for a regular full-frame images (previous slide).
+## Administración de datos de investigación
 
-## {background-image="images/kanagawa169.jpg" background-size="100%"}
-
-## Interactive plots
-
-```{r}
-#| out-width: 75%
-
-library(threejs)
-
-# Approximate locations as factors
-data(flights)
-dest = factor(sprintf("%.2f:%.2f", flights[,3], flights[,4]))
-
-# A table of destination frequencies
-freq = sort(table(dest), decreasing=TRUE)
-
-# The most frequent destinations in these data
-frequent_destinations = names(freq)[1:10]
-
-# Subset the flight data by destination frequency
-idx = dest %in% frequent_destinations
-frequent_flights = flights[idx, ]
-
-# Lat/long and counts of frequent flights
-ll = unique(frequent_flights[, 3:4])
-
-# Plot frequent destinations as bars, and the flights to and from
-# them as arcs. Adjust arc width and color by frequency.
-globejs(lat=ll[, 1], long=ll[, 2], arcs=frequent_flights,
-        # bodycolor="#aaaaff", arcsHeight=0.3, arcsLwd=2,
-        bodycolor="#fff", arcsHeight=0.3, arcsLwd=2,
-        arcsColor="#ffff00", arcsOpacity=0.15,
-        atmosphere=TRUE, color="#fff", pointsize=0.5)
-```
-
-_Note: Simple flight data example using `threejs`. There are many interactive
-plotting options beyond this.
-(More [details](https://quarto.org/docs/interactive/).)_
-
-# Summary {background-color="#40666e"}
-
-## Summary
-
-### A minimal and elegant presentation theme
+> El estándar para investigaciones reproducibles es que los datos cumplan con los principios **FAIR**
 
 
-The Quarto reveal.js [clean theme](grantmcdermott/quarto-revealjs-clean) aims to
-be a minimal and elegant presention theme.
+![](images/data-ecosystem.svg){width=40% fig-align="center"}
 
-We have highlighted some theme-specific components. But all of the regular reveal.js functionality is supported ([chalkboard](https://quarto.org/docs/presentations/revealjs/presenting.html#chalkboard), etc.)
+## FAIR
 
-Install the theme:
+["The FAIR Guiding Principles for scientific data management and stewardship"](https://www.nature.com/articles/sdata201618)
 
-```{.bash}
-quarto install extension grantmcdermott/quarto-revealjs-clean
-```
+![](images/fair-principles.svg){width=40% fig-align="center"}
 
-Use these demo slides as a template:
+:::{.notes}
+Localizable: ¡El primer paso para (re)utilizar datos es encontrarlos! Los metadatos descriptivos (información sobre los datos, como palabras clave) son esenciales.
 
-```{.bash}
-quarto use template grantmcdermott/quarto-revealjs-clean-demo
-```
+Accesible: una vez que el usuario encuentra los datos y el software, necesita saber cómo acceder a ellos. Los datos podrían estar disponibles abiertamente, pero también es posible que sean necesarios procedimientos de autenticación y autorización.
 
-## References
+Interoperable: los datos deben integrarse con otros datos e interoperar con aplicaciones o flujos de trabajo.
 
-::: {#refs}
+Reutilizable: los datos deben estar bien descritos para que puedan usarse, combinarse y ampliarse en diferentes entornos.
 :::
 
-## Appendix {#sec-appendix}
+# Ambientes reproducibles
 
-```{r}
-#| label: tbl-attsum
-#| tbl-cap: Summary of the base R `attitude` dataset
+Cada computador es un ambiente computacional **único** que consiste de un sistema operativo, los *softwares* instalados, sus respectivas versiones entre otras características.
 
-modelsummary::datasummary_skim(attitude)
+. . .
+
+::: box1
+Supongamos que un proyecto de investigación se lleva a cabo en un computador pero luego se transfiere a un computador diferente. No habrá una garantía que el análisis podrá ser realizado o que generará los mismos resultados si estos dependen de algunas de las características mencionadas.
+:::
+
+**Para que una investigación sea reproducible, el ambiente computacional en el que se conduce debe poder ser replicado.**
+
+## ¿Qué es un ambiente computacional?
+
+> En términos generales, un ambiente computacional es un sistema donde un programa se ejecuta. Esto incluye las características de *hardware* y *software*
+
+Replicar los ambientes computacionales tendrá un potencial impacto en:
+
+- Investigadores
+
+- Colaboradores
+
+. . .
+
+![](images/piramid.png){width=40% fig-align="center"}
+
+## Capturando el ambiente computacional
+
+### Categorías:
+
+![](images/computational-environments.jpg){width=60% fig-align="center"}
+
+## Sistema de admininistración de paquetes
+
+::: box3
+Los sistemas de administración de paquetes son herramientas usadas para instalar y mantener un seguimiento del software usado en un sistema. Los archivos utilizados pueden ser compartidos con otros para que repliquen el ambiente computacional.
+:::
+
+Ejemplos: 
+
+- [Conda](https://conda.io/)
+- [Posit Package Manager](https://posit.co/products/enterprise/package-manager/)
+- [Metrum Package Network](https://mpn.metworx.com/docs/) via [pkgr](https://github.com/metrumresearchgroup/pkgr)
+- [Packrat](https://rstudio.github.io/packrat/)
+- [Renv](https://rstudio.github.io/renv/articles/renv.html)
+
+## Binder
+
+::: box3
+Binder es un servicio que genera versiones funcionales de proyecto desde un **repositorio git** y los sube a la nube. Estos proyectos "binderizados" son accesibles desde un navegador de internet.
+:::
+
+Binder requiere que el software (y óptimamente, sus versiones) necesario para ejecutar un proyecto sea especificado.
+
+![](images/featured.png){width=60% fig-align="center"}
+
+
+## Máquinas virtuales
+
+::: box3
+Las máquinas virtuales son **computadores simulados**. Un usuario puede crear un computador *"virtual"* fácilmente, especificando el sistema operativo que quieren tener, entre otras características, y ejecutarlo como cualquier otra aplicación.
+:::
+
+![](images/Virtualbox_logo.png){width=30% fig-align="center"}
+
+## Contenedores
+
+::: box3 
+Los contenedores proveen muchos de los beneficios de una máquina virtual, pues esencialmente actúan como máquinas independientes que contienen sus propios archivos, *softwares* y configuraciones.
+
+La diferencia radica en que una máquina virtual incluye un sistema operativo junto con sus *softwares*, independientemente si el proyecto los utiliza. En cambio, los contenedores sólo incluyen el *software* y archivos explícitamente definidos para ejecutar un proyecto particular.
+:::
+
+![](images/docker-logo.png){width=30% fig-align="center"}
+
+## Ejemplos: Renv
+
+1. Creamos un nuevo proyecto
+2. Seleccionamos la opción de utilizar `renv` en el nuevo proyecto
+3. Alternativamente podemos utilizar el comando `renv::init()` para proyectos existentes
+4. Trabajamos en el código, instalando o sacando paquetes conforme sea necesario
+5. Usamos el comando `renv::snapshot()` para capturar el ambiente
+
+- El comando `renv::init()` tendremos opciones para restaurar, descartar o activar el ambiente computacional
+- El comando `renv::dependencies()` nos entrega los paquetes de los cuales depende nuestro proyecto.
+
+
+## Ejemplos: Conda
+
+1. Instalar [Anaconda](https://www.anaconda.com/)
+2. Seleccionar pestaña *Environment*
+3. Crear ambiente de proyecto (R, Python o ambos)
+4. Utilizar RStudio desde anaconda.
+
+. . .
+
+![](images/Anaconda_Logo_RGB_Corporate_stacked_300x225_2x-1.png){width=40% fig-align="center"}
+
+## Ejemplos: BinderHub
+
+![](images/binderhub.svg){width=60% fig-align="center"}
+
+## Pasos para crear un ambiente en BinderHub
+
+1. [Entrar a Binder](https://mybinder.org/)
+2. Crear un repositorio usando el siguiente *template*: [binder-r](https://github.com/binder-examples/r)
+3. Subir archivos al repositorio.
+4. Modificar archivo `install.R` con los paquetes necesarios
+5. Modificar `runtime.txt` con la versión de R necesaria
+  - Para ver la versión de R con la que se está trabajando: `version` en la consola de 
+6. Modificar `README.md` con la dirección del repositorio, por ejemplo:
+
+. . .
+
+:::{.frament}
+`http://mybinder.org/v2/gh/binder-examples/r/master?urlpath=rstudio` 
+
+cambia a
+
+`http://mybinder.org/v2/gh/ealvnrz/binder-r-test/master?urlpath=rstudio`
+:::
+
+## YAML
+
+> YAML es un formato de *serialización* de datos que puede ser leído fácilmente. Su uso es amplio, desde Acciones en GitHub hasta Quarto
+
+Un ejemplo de YAML que difine un **ambiente computacional** podría ser:
+
+```
+# Define the operating system as Linux
+os: linux
+
+# Use the xenial distribution of Linux
+dist: xenial
+
+# Use the programming language Python
+language: python
+
+# Use version of Python 3.2
+python: 3.2
+
 ```
 
-[[Back to main]{.button}](#sec-crossref)
+::: box3
+YAML nos será de particular interés para la creación de documentos y presentaciones reproducibles, utilizando quarto.
+:::
+
+## Caso práctico
+
+::: box1
+
+Generaremos un proyecto desde cero que tenga las siguientes características:
+
+- Repositorio en Github
+- Código de R + Administrador de paquetes
+
+:::
+
+
+
