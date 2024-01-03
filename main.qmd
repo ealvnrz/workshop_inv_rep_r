@@ -235,6 +235,165 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 
 # Módulo 2: Control de versiones {background-color="#40666e"}
 
+## Control de versiones
+
+![](images/project-history.svg){width=45% fig-align="center"}
+
+## Git
+
+:::box1
+**Sistema de control de versiones distribuido que se utiliza para el seguimiento de cambios en archivos de desarrollo software.**
+:::
+
+
+![](images/version-control.svg){width=45% fig-align="center"}
+
+
+## Motivación para utilizar control de versiones
+
+- Es primordial para seguir la procedencia de la información.
+
+- Crea versiones históricas que nos permiten entender que cambios fueron realizados.
+
+- Facilita el manejo de distintas versiones de archivos.
+
+- Permite seguir y combinar cambios realizados por distintas personas.
+
+## Flujo de trabajo
+
+> El control de versiones es un **enfoque sistemático** para registrar los cambios realizados en un archivo o conjunto de archivos a lo largo del tiempo.
+
+Un flujo de trabajo típico para usar control de versiones es:
+
+1. **Crear archivos**
+2. **Trabajar sobre estos archivos**
+3. **Crear un *snapshot* del estado del archivo** (también llamado versión)
+4. **Documentar que cambios fueron realizados en el historial de la versión del archivo**
+
+. . .
+
+![](images/main-branch.png){width=55% fig-align="center"}
+
+## Elementos de Git
+
+- **Repositorio**: Lugar donde se almacenan todos los archivos, carpetas e historial del proyecto.
+
+- **Commit**: Registro de los cambios realizados en los archivos del proyecto en un momento específico.
+
+- **Ramas (o "Branches")**: Espacios de trabajo independientes del desarrollo principal.
+
+- **Fusiones (o "Merges")**: Representa la acción de incorporar los cambios de una Rama (Branch) a otra.
+
+- **Repositorios remotos**: Copias del repositorio almacenadas en un servidor central o en otros equipos.
+
+## Repositorio
+
+:::: {.columns}
+:::{.column}
+El **Repositorio** de un proyecto corresponde al almacén de datos que contiene todos los archivos, carpetas y el historial de cambios del proyecto. 
+
+
+
+:::
+
+
+::: {.column}
+![](images/repositorio.png){width=30% fig-align="center"}
+:::
+
+::::
+
+::: box1
+Un repositorio de Git puede estar:
+
+- Estar ubicado localmente en la computadora de un desarrollador.
+
+- De forma remota en un servidor. 
+:::
+
+::: {.notes}
+La principal característica de Git es que cada desarrollador que trabaja en el proyecto tiene una copia completa del repositorio en su máquina local, lo que permite que trabajen de manera independiente y sin conexión continua al servidor central. Esto es lo que se conoce como un sistema de control de versiones distribuido.
+
+El repositorio de Git almacena toda la historia de revisiones o "commits" realizados en el proyecto, lo que permite retroceder en el tiempo y ver cómo ha evolucionado el código. Cada commit contiene información sobre los cambios realizados, quién los hizo y cuándo se realizaron.
+
+Los repositorios de Git facilitan la colaboración en equipos de desarrollo, ya que permiten que varios desarrolladores trabajen en diferentes características o soluciones de errores en paralelo sin interferir entre sí. Luego, estos cambios pueden combinarse o "fusionarse" para crear una versión final del proyecto que incorpore todas las contribuciones.
+:::
+
+
+
+## Ramas (Branches)
+
+::: box1
+Supongamos que quiero agregar o probar algo nuevo en un archivo antes de que se vea reflejado en archivo principal. ¿Cómo puedo mantener un registro de esto?
+:::
+
+. . .
+
+![](images/one-branch.png){width=80% fig-align="center"}
+
+. . .
+
+![](images/two-branches.png){width=80% fig-align="center"}
+
+## Sub-ramas (Sub-Branches)
+
+![](images/sub-branch.png){width=80% fig-align="center"}
+
+# ¿Cómo uso Git y Github?
+
+::: box1 
+Si deseamos tener una control de versión **LOCAL**, debemos crear un proyecto en RStudio
+:::
+
+## Conectar RStudio con Github
+
+Para guardar nuestras versiones en Github debemos seguir los siguientes pasos:
+
+1. Crear un token de acceso personal (PAT) en Github
+
+```{r}
+#| eval: false
+library(usethis)
+usethis::create_github_token()
+```
+2. Almacener el token de acceso personal (PAT) 
+
+```{r}
+#| eval: false
+library(gitcreds)
+gitcreds::gitcreds_set()
+```
+
+3. Crear repositorio en Github (via web o aplicación de escritorio)
+
+4. Crear nuevo proyecto (Versión de control > Git >  URL del repositorio)
+
+## Push & Pull
+
+![](images/git-push.png){width=80% fig-align="center"}
+
+## Git para proyectos de investigación
+
+![](images/healthy-research-tree.jpg){width=60% fig-align="center"}
+
+- **Versiones para conjuntos de datos, requieren especial cuidado**
+- **Estructura de carpetas específician ayudan en el flujo de trabajo**
+
+. . .
+
+:::box2
+[Introducción a git](https://learngitbranching.js.org/?locale=es_ES)
+:::
+## Estructura de un repositorio
+
+![](images/file-management-manual.jpg){width=60% fig-align="center"}
+
+- [Open Science Framework](https://osf.io/4sdn3/)
+
+ 
+
+
+
 ## Conectar RStudio y Github
 
 1. Crear una cuenta en [GitHub](https://github.com/)
@@ -484,7 +643,8 @@ Generaremos un proyecto desde cero que tenga las siguientes características:
 
 # LaTeX
 
-![](images/LaTeX_logo.png){.absolute width="900" height="400" top="200" left="350"}
+![](images/LaTeX_logo.png){width=60% fig-align="center"}
+
 
 ## ¿Que es LaTeX?
 
@@ -1142,55 +1302,6 @@ A \xleftarrow{\text{Izquierda}} B
 :::
 ::::
 
-## Cartas Gantt 
-
-El paquete `pgfgantt` nos permite fácilmente crear cartas gantt, para ello debemos agregarlo en el preámbulo del documento.
-
-```latex
-\usepackage{pgfgantt}
-```
-Un ejemplo sencillo de carta gantt es el siguiente:
-
-```latex
-\begin{ganttchart}{1}{12}
-\gantttitle{2011}{12} \\
-\gantttitlelist{1,...,12}{1} \\
-\ganttgroup{Group 1}{1}{7} \\
-\ganttbar{Task 1}{1}{2} \\
-\ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-\ganttmilestone{Milestone}{7} \ganttnewline
-\ganttbar{Final Task}{8}{12}
-\ganttlink{elem2}{elem3}
-\ganttlink{elem3}{elem4}
-\end{ganttchart}
-``` 
-## Cartas Gantt
-
-::::{.columns}
-
-:::{.column}
-```latex
-\begin{ganttchart}{1}{12}
-\gantttitle{2011}{12} \\
-\gantttitlelist{1,...,12}{1} \\
-\ganttgroup{Group 1}{1}{7} \\
-\ganttbar{Task 1}{1}{2} \\
-\ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-\ganttmilestone{Milestone}{7} \ganttnewline
-\ganttbar{Final Task}{8}{12}
-\ganttlink{elem2}{elem3}
-\ganttlink{elem3}{elem4}
-\end{ganttchart}
-``` 
-:::
-
-:::{.column}
-![](images/gantt.png){width="90%" fig-align="center"}
-
-:::
-::::
-
-La documentación de este paquete se encuentra en [CTAN](http://mirrors.ctan.org/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf).
 
 ## Overleaf + GitHub
 
@@ -1459,38 +1570,6 @@ class(df)
 sloop::otype(df)
 ```
 
-##  {background-image="images/tidyverse-default.png" .small}
-
-::: box1
-Tidyverse es un sistema coherente de paquetes para manipulación, exploración y visualización de datos que comparten una filosofía de diseño común.
-:::
-
-. . .
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-::: box1
-**Ventajas:**
-
-- Funciones consistentes
-- Cobertura de flujo de trabajo
-- Enfoque parsimonioso para el desarrollo de herramientas
-:::
-
-## Flujo de trabajo
-
-![](images/program.png){width=60% fig-align="center"}
 
 # Rmarkdown & Quarto
 
@@ -1782,3 +1861,40 @@ Crearemos un mismo documento en distintos formatos
 :::
 
 [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
+
+
+# Módulo 4: 
+
+
+##  {background-image="images/tidyverse-default.png" .small}
+
+::: box1
+Tidyverse es un sistema coherente de paquetes para manipulación, exploración y visualización de datos que comparten una filosofía de diseño común.
+:::
+
+. . .
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+::: box1
+**Ventajas:**
+
+- Funciones consistentes
+- Cobertura de flujo de trabajo
+- Enfoque parsimonioso para el desarrollo de herramientas
+:::
+
+## Flujo de trabajo
+
+![](images/program.png){width=60% fig-align="center"}
