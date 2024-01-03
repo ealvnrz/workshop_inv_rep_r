@@ -4,6 +4,9 @@ subtitle: Workshop Ciencia Abierta
 format:
   clean-revealjs:
     self-contained: true
+    theme: slides.scss
+    touch: true
+    slide-level: 2
 author:
   - name: Eloy Alvarado Narváez
     orcid: 0000-0001-7522-2327
@@ -48,11 +51,11 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](images/quarto.png){width=600px fig-align="center"}
+![](images/quarto.png){width=60% fig-align="center"}
 :::
 
 ::: {.fragment .fade-in-then-out}
-![](images/flex.png){width=550px fig-align="center"}
+![](images/flex.png){width=60% fig-align="center"}
 :::
 
 ::: {.fragment .fade-in-then-out}
@@ -1570,8 +1573,598 @@ class(df)
 sloop::otype(df)
 ```
 
+##  {background-image="images/tidyverse-default.png" .small}
 
-# Rmarkdown & Quarto
+::: box1
+Tidyverse es un sistema coherente de paquetes para manipulación, exploración y visualización de datos que comparten una filosofía de diseño común.
+:::
+
+. . .
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+::: box1
+**Ventajas:**
+
+- Funciones consistentes
+- Cobertura de flujo de trabajo
+- Enfoque parsimonioso para el desarrollo de herramientas
+:::
+
+## Flujo de trabajo
+
+![](images/program.png){width=60% fig-align="center"}
+
+### Principios
+
+- `tibbles` como estructura principal de datos
+- *Tidy data*, donde las filas son observaciones particulares y las columnas las variables observadas
+- Canalizar las salidas de las funciones como entradas de otras.
+
+
+:::{.fragment}
+[Artículo original sobre Tidy Data en Journal of Statistical Software](https://www.jstatsoft.org/article/view/v059i10)
+:::
+
+
+## Núcleo de Tidyverse
+
+::: {.r-stack}
+
+![](images/ggplot2.png){.fragment width=70% fig-align="center"}
+
+![](images/dplyr.png){.fragment width=70% fig-align="center"}
+
+![](images/tidyr.png){.fragment width=70% fig-align="center"}
+
+![](images/readr.png){.fragment width=70% fig-align="center"}
+
+![](images/purrr.png){.fragment width=70% fig-align="center"}
+
+![](images/tibble.png){.fragment width=70% fig-align="center"}
+
+![](images/stringr.png){.fragment width=70% fig-align="center"}
+
+![](images/forcats.png){.fragment width=70% fig-align="center"}
+:::
+
+:::{.notes}
+ggplot2
+ggplot2 is a system for declaratively creating graphics, based on The Grammar of Graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. 
+
+dplyr
+dplyr provides a grammar of data manipulation, providing a consistent set of verbs that solve the most common data manipulation challenges. 
+
+tidyr
+tidyr provides a set of functions that help you get to tidy data. Tidy data is data with a consistent form: in brief, every variable goes in a column, and every column is a variable..
+
+readr
+readr provides a fast and friendly way to read rectangular data (like csv, tsv, and fwf). It is designed to flexibly parse many types of data found in the wild, while still cleanly failing when data unexpectedly changes.  
+
+purrr
+purrr enhances R’s functional programming (FP) toolkit by providing a complete and consistent set of tools for working with functions and vectors. Once you master the basic concepts, purrr allows you to replace many for loops with code that is easier to write and more expressive. 
+
+
+tibble
+tibble is a modern re-imagining of the data frame, keeping what time has proven to be effective, and throwing out what it has not. Tibbles are data.frames that are lazy and surly: they do less and complain more forcing you to confront problems earlier, typically leading to cleaner, more expressive code. Go to docs...
+
+
+stringr
+stringr provides a cohesive set of functions designed to make working with strings as easy as possible. It is built on top of stringi, which uses the ICU C library to provide fast, correct implementations of common string manipulations. 
+
+forcats
+forcats provides a suite of useful tools that solve common problems with factors. R uses factors to handle categorical variables, variables that have a fixed and known set of possible values.
+:::
+
+## Tibble 
+
+::::{.columns}
+
+:::{.column}
+![](images/tibble.png){width=40% fig-align="center"} 
+:::
+
+:::{.column}
+> `tibbles` es una de las características unificadoras de tidyverse; es la versión tidyverse de los objetos data.frame
+:::
+::::
+Sus características principales son:
+
+- Mejor comportamiento en su impresión
+- No permite la coerción de caracteres a factores
+- Manejo los errores de manera más robusta
+
+## Data.frame a tibble 
+
+::::{.columns}
+
+:::{.column}
+Para transformar un objeto data.frame a tibble escribimos:
+
+```{r}
+#| echo: true
+trees_tbl <- tibble::as_tibble(datasets::trees)
+trees_tbl
+```
+:::
+
+:::{.column}
+Para crear conjuntos de datos tibble escribimos:
+
+```{r}
+#| echo: true
+tibble::tibble(
+    x = 1:5, 
+    y = 1, 
+    z = x ^ 2 + y
+)
+```
+:::
+::::
+
+## readr
+
+::::{.columns}
+
+:::{.column}
+![](images/readr.png){width=40% fig-align="center"}
+:::
+
+:::{.column}
+> El paquete **readr** contiene funciones simples y consistentes para importar datos guardados como documentos de archivo sin formato. Ofrece una alternativa a las funciones básicas de R.
+:::
+::::
+
+
+Entre sus principales ventajas están:
+
+- Es ~10 veces más rápido que las funciones de lectura de datos de R base.
+- Entre datos en formato tibble
+- Tiene configuraciones más intuitivas por defecto: No nombres por fila y no `stringsAsFactors = TRUE`
+
+## Funciones de lectura
+
+Funciones        | Lee
+-------------- | --------------------------
+`read_csv()`   | Comma separated values
+`read_csv2()`  | Semi-colon separate values
+`read_delim()` | General delimited files
+`read_fwf()`   | Fixed width files
+`read_log()`   | Apache log files
+`read_table()` | Space separated files
+`read_tsv()`   | Tab delimited values
+
+## Funciones de escritura
+
+Funciones            | Escribe
+------------------- | ----------------------------------------
+`write_csv()`       | Comma separated values
+`write_excel_csv()` | CSV que se planea abrir en Excel
+`write_delim()`     | General delimited files
+`write_file()`      | Un string, escrito tal como está
+`write_lines()`     | Un vector de strings, un string por línea
+`write_tsv()`       | Tab delimited values
+
+## Otro tipos de datos
+
+Existen otros paquetes que nos permiten leer archivos en distintos formatos, entre ellos:
+
+
+Paquete  | Lee
+-------- | -----
+haven    | Archivos de SPSS, Stata y SAS
+readxl   | Archivos excel  (.xls, .xlsx)
+jsonlite | json
+xml2     | xml
+httr     | web API's
+rvest    | Páginas web (web scraping)
+DBI      | databases
+sparklyr | datos cargados en spark 
+
+
+## dplyr
+
+::::{.columns}
+
+:::{.column}
+![](images/lecture_3/dplyr.png){width=40% fig-align="center"}
+:::
+
+:::{.column}
+> El paquete **dplyr** es una gramática para la manipulación de datos. Sus funciones se definen como verbos.
+:::
+::::
+
+Entre las funciones más utilizadas en este paquete se encuentras:
+
+- `%>%`
+- `group_by` & `filter`
+- `mutate`
+- `select`
+
+## tidyr
+
+::::{.columns}
+
+:::{.column}
+![](images/tidyr.png){width=40% fig-align="center"}
+:::
+
+:::{.column}
+> El paquete **tidyr** tiene por finalidad transformar los datos en formato **tidy**. 
+:::
+::::
+
+![](images/wide_long.png){width=50% fig-align="center"}
+
+
+## ggplot2
+
+::::{.columns}
+
+:::{.column}
+![](images/ggplot2.png){width=40% fig-align="center"}
+:::
+
+:::{.column}
+> El paquete **ggplot2** es un sistema para crear gráficos de manera declarativa. Se provee los datos, se configura como relacionar las variables a lo elementos estéticos, que estilo de gráfico se desea y el paquete hace el resto.
+:::
+::::
+
+En general, la estructura de un gráfico de ggplot es:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data.frame, aes(nombres_de_columna)) + geom_algo(argumentos, 
+    aes(columnas))
+```
+
+:::box3
+Los gráficos creados con ggplot2 se ha vuelto el estándar para las investigaciones reproducibles. EXisten [múltiples extensiones](https://exts.ggplot2.tidyverse.org/gallery/) que complementan a ggplot2. También hay un [repositorio](https://github.com/erikgahner/awesome-ggplot2) que los pone a disposición.
+:::
+
+## ggplot2
+
+![](images/ggplot2_2.png){width=50% fig-align="center"}
+
+## Diagrama general
+
+![](images/tidyverse2.png){width=80% fig-align="center"}
+
+
+## {background-image="images/featured.jpg"}
+
+::: box3
+[`tidymodels`](https://www.tidymodels.org/) es un sistema coherente de paquetes para creación de modelos y uso de machine learning bajo los principios de `tidyverse`. 
+:::
+
+## Diagrama general
+
+![](images/program_badges.png){width=80% fig-align="center"}
+
+## Tidymodels
+
+![](images/tidymodels2.png){width=70% fig-align="center"}
+
+- `rsample` nos entrega herramientas para **realizar diferentes tipos de muestreo**
+- `recipes` nos entrega herramientas para **organizar el preprocesamiento y el *feature engineering* **
+- `parsnip` nos entrega herramientas para **definir modelos**
+- `yardstick` nos entrega herramientas para **calcular métricas de desempeño de los modelos**
+- `workflows` nos entrega herramientas para **combinar las etapas de preprocesamiento y creación de modelos**
+
+## parsnip
+
+![](images/cover.png){width=70% fig-align="center"}
+
+Podemos utilizar `parsnip_addin()` para ver los modelos compatibles con el paquete.
+
+## recipes
+
+![](images/recipes.png){width=70% fig-align="center"}
+
+# Módulo 5: Casos prácticos
+
+## Ejemplo práctico
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3"
+library(tidyverse)
+library(palmerpenguins)
+penguins
+```
+
+![](images/penguins.png){.absolute bottom=0 right=50 width=40%}
+
+## Explorando los datos
+
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3|4|5"
+#| fig-align: center
+penguins %>%
+  filter(!is.na(sex)) %>%
+  ggplot(aes(flipper_length_mm, bill_length_mm, color = sex, size = body_mass_g)) +
+  geom_point(alpha = 0.5) +
+  facet_wrap(~species)
+```
+:::{.fragment}
+![](images/ggplot2.png){.absolute top=300 right=-50 width=20%}
+:::
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3"
+penguins_df <- penguins %>%
+  filter(!is.na(sex)) %>%
+  select(-island)
+```
+
+:::{.fragment}
+![](images/dplyr.png){.absolute top=300 right=-50 width=20%}
+:::
+
+## Construyendo un modelo {style="font-size:35px"}
+
+### Separación conjunto de entrenamiento y prueba
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3-5|6"
+library(tidymodels)
+set.seed(123)
+penguin_split <- initial_split(penguins_df, strata = sex)
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+penguin_split
+```
+
+
+
+### Remuestreo de los datos
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3"
+set.seed(123)
+penguin_boot <- bootstraps(penguin_train)
+penguin_boot
+```
+
+:::{.fragment}
+![](images/rsample.png){.absolute top=10 right=-50 width=20%}
+:::
+
+## Definimiendo modelos
+
+:::box3
+Para este ejemplo realizaremos un modelo de regresión logística y un *random forest* para predecir el sexo de los pingüinos.
+:::
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1-2|3"
+glm_spec <- logistic_reg() %>%
+  set_engine("glm")
+glm_spec
+```
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1-2|3|4"
+rf_spec <- rand_forest() %>%
+  set_mode("classification") %>%
+  set_engine("ranger")
+rf_spec
+```
+
+:::{.fragment}
+![](images/parsnip.png){.absolute top=300 right=-50 width=20%}
+:::
+
+## Flujo de trabajo {style="font-size:35px"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1-2|3"
+penguin_wf <- workflow() %>%
+  add_formula(sex ~ .)
+penguin_wf
+```
+
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3-6|7"
+#| warning: false
+glm_rs <- penguin_wf %>%
+  add_model(glm_spec) %>%
+  fit_resamples(
+    resamples = penguin_boot,
+    control = control_resamples(save_pred = TRUE)
+  )
+glm_rs
+```
+
+:::{.fragment}
+![](images/workflows.png){.absolute top=300 right=-50 width=20%}
+:::
+
+## Flujo de trabajo
+
+```{r}
+#| echo: true
+#| code-line-numbers: "1|2|3-6|7"
+#| warning: false
+rf_rs <- penguin_wf %>%
+  add_model(rf_spec) %>%
+  fit_resamples(
+    resamples = penguin_boot,
+    control = control_resamples(save_pred = TRUE)
+  )
+rf_rs
+```
+
+## Evaluando los modelo
+
+
+```{r}
+#| echo: true
+collect_metrics(rf_rs)
+collect_metrics(glm_rs)
+```
+
+::: box3
+El modelo lineal tiene mejor desempeño que un *random forest*, por lo que lo analizamos en detalle.
+:::
+
+## Revisando el modelo lineal
+
+```{r}
+#| echo: true
+glm_rs %>%
+  conf_mat_resampled()
+```
+
+```{r}
+#| fig-align: center
+glm_rs %>%
+  collect_predictions() %>%
+  group_by(id) %>%
+  roc_curve(sex, .pred_female) %>%
+  ggplot(aes(1 - specificity, sensitivity, color = id)) +
+  geom_abline(lty = 2, color = "gray80", size = 1.5) +
+  geom_path(show.legend = FALSE, alpha = 0.6, size = 1.2) +
+  coord_equal()
+```
+
+## Probando el modelo
+
+::: box3
+Utilizamos el conjunto de prueba en nuestro modelo lineal
+:::
+
+:::{.fragment}
+```{r}
+#| echo: true
+#| code-line-numbers: "1-2|3|4"
+penguin_final <- penguin_wf %>%
+  add_model(glm_spec) %>%
+  last_fit(penguin_split)
+penguin_final
+```
+:::
+
+
+:::{.fragment}
+```{r}
+#| echo: true
+collect_metrics(penguin_final)
+
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: true
+#| code-line-numbers: "1-2|3|4"
+collect_predictions(penguin_final) %>%
+  conf_mat(sex, .pred_class)
+```
+:::
+
+## Detalle del modelo {style="font-size:35px"}
+
+```{r}
+#| echo: true
+penguin_final$.workflow[[1]] %>%
+  tidy(exponentiate = TRUE)
+```
+
+```{r}
+#| fig-align: center
+penguins %>%
+  filter(!is.na(sex)) %>%
+  ggplot(aes(bill_depth_mm, bill_length_mm, color = sex, size = body_mass_g)) +
+  geom_point(alpha = 0.5) +
+  facet_wrap(~species)
+```
+
+## Cheatsheets
+
+- [`readr`](https://rstudio.github.io/cheatsheets/data-import.pdf)
+- [`ggplot2`](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+- [`dplyr`](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+- [`tidyr`](https://rstudio.github.io/cheatsheets/data-transformation.pdf)
+- [`purrr`](https://rstudio.github.io/cheatsheets/purrr.pdf)
+- [`stringr`](https://rstudio.github.io/cheatsheets/strings.pdf)
+- [`forcats`](https://rstudio.github.io/cheatsheets/factors.pdf)
+- [`lubridate`](https://rstudio.github.io/cheatsheets/lubridate.pdf)
+- [`RStudio IDE`](https://rstudio.github.io/cheatsheets/rstudio-ide.pdf)
+- [`reticulate`](https://rstudio.github.io/cheatsheets/reticulate.pdf)
+
+## Flujo de trabajo
+
+![](images/program_badges.png){width=60% fig-align="center"}
+
+## ChatGPT {background-image="images/chat-gpt-background-free-vector.jpg"}
+
+## ChatGPT en Rstudio
+
+El paquete [gptstudio](https://github.com/MichelNivard/gptstudio) nos permite interactuar con chatGPT dentro del entorno de RStudio. Sin embargo, actualmente se pide tener una cuenta de pago para poder utilizar la [API](https://platform.openai.com/account/api-keys).
+
+```{r}
+#| echo: true
+#| eval: false
+require(usethis)
+edit_r_environ()
+```
+
+## {background-image="images/himalaya.jpeg"}
+
+::: box1
+Utilizaremos un conjunto de datos de del proyecto [`tidytuesday`](https://github.com/rfordatascience/tidytuesday) como nuestro objeto de estudio; [Himalayan Climbing Expeditions](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md).
+:::
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+::: box1
+El conjunto de datos contiene un gran registro (entre 1905-2019) de varios *peaks* de la cordillera del Himalaya. las expediciones realizadas e integrantes de cada expedición.
+
+**Objetivo: Predecir la probabilidad de que una expedición tenga un final letal.**
+:::
+
+## Proceso usual de creación de modelos
+
+
+![](images/modeling-process.svg){width=80% fig-align="center"}
+
+
+
+# Módulo 6: Difusión de resultados
+
+## Rmarkdown & Quarto
 
 ![](images/rmarkdown_quarto.png){width="50%" fig-align="center"}
 
@@ -1713,20 +2306,20 @@ El contenido del documento puede estar escrito utilizando diferentes formatos, e
 | [Quarto](https://quarto.org)                                             |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | ![Caption](images/ifop.png){fig-alt="Logo IFOP"}                                                          |
-| ![Caption](images/ifop.png)                                    |                                                                                                                     |
+| ``` markdown                                                             | ![Caption](images/ifop.png){fig-alt="Logo IFOP"}                                                                    |
+| ![Caption](images/ifop.png)                                              |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![Caption](images/ifop.png)](https://quarto.org)                                                         |
-| [![Caption](images/ifop.png)](https://quarto.org)              |                                                                                                                     |
+| ``` markdown                                                             | [![Caption](images/ifop.png)](https://quarto.org)                                                                   |
+| [![Caption](images/ifop.png)](https://quarto.org)                        |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![Caption](images/ifop.png "An elephant"){fig-alt="A line drawing of an elephant."}](https://quarto.org) |
-| [![Caption](images/ifop.png)](https://quarto.org "Logo IFOP")  |                                                                                                                     |
+| ``` markdown                                                             | [![Caption](images/ifop.png "An elephant"){fig-alt="A line drawing of an elephant."}](https://quarto.org)           |
+| [![Caption](images/ifop.png)](https://quarto.org "Logo IFOP")            |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![](images/ifop.png){fig-alt="A line drawing of an elephant."}](https://quarto.org)                      |
-| [![](images/ifop.png){fig-alt="Alt text"}](https://quarto.org) |                                                                                                                     |
+| ``` markdown                                                             | [![](images/ifop.png){fig-alt="A line drawing of an elephant."}](https://quarto.org)                                |
+| [![](images/ifop.png){fig-alt="Alt text"}](https://quarto.org)           |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 
@@ -1861,40 +2454,3 @@ Crearemos un mismo documento en distintos formatos
 :::
 
 [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
-
-
-# Módulo 4: 
-
-
-##  {background-image="images/tidyverse-default.png" .small}
-
-::: box1
-Tidyverse es un sistema coherente de paquetes para manipulación, exploración y visualización de datos que comparten una filosofía de diseño común.
-:::
-
-. . .
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-::: box1
-**Ventajas:**
-
-- Funciones consistentes
-- Cobertura de flujo de trabajo
-- Enfoque parsimonioso para el desarrollo de herramientas
-:::
-
-## Flujo de trabajo
-
-![](images/program.png){width=60% fig-align="center"}
