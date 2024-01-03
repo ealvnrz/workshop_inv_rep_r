@@ -336,8 +336,11 @@ Interoperable: los datos deben integrarse con otros datos e interoperar con apli
 Reutilizable: los datos deben estar bien descritos para que puedan usarse, combinarse y ampliarse en diferentes entornos.
 :::
 
-# Ambientes reproducibles
 
+# Módulo 3: Ambientes reproducibles {background-color="#40666e"}
+
+
+## Ambientes reproducibles
 Cada computador es un ambiente computacional **único** que consiste de un sistema operativo, los *softwares* instalados, sus respectivas versiones entre otras características.
 
 . . .
@@ -495,4 +498,283 @@ Generaremos un proyecto desde cero que tenga las siguientes características:
 :::
 
 
+# Módulo 4: Herramientas básicas {background-color="#40666e"}
+
+
+## R & RStudio
+
+![](images/r-rstudio-logos.png){width=50% fig-align="center"}
+
+## La discusión eterna
+
+![](images/r_vs_py.png){width=60% fig-align="center"}
+
+. . .
+
+> Ambos lenguajes nos permiten realizar investigaciones reproducibles. 
+
+## R + Python
+
+> `R` y `Python` no son mutuamente excluyentes
+
+![](images/reticulated_python.png){width=60% fig-align="center"}
+
+## Código python en R
+
+El paquete [reticulate](https://rstudio.github.io/reticulate/) nos permite ejecutar código `Python` en nuestros archivos R.
+
+1. Instalamos y cargamos el paquete
+
+:::{.fragment}
+```{r}
+#| echo: true
+#| eval: false
+install.packages("reticulate")
+```
+:::
+
+2. Configuramos la dirección de nuestro python local
+
+:::{.fragment}
+```{r}
+#| echo: true
+#| eval: false
+library(reticulate)
+use_python("/home/ealvnrz/anaconda3/bin/python")
+```
+:::
+
+3. Ejecutamos código python
+
+:::{.fragment}
+
+```{r}
+#| echo: true
+#| eval: false
+py_run_string("def Psq (x):
+                value= x*x
+                return(value)")
+```
+:::
+
+4. Utilizamos la función en R
+
+:::{.fragment}
+```{r}
+#| echo: true
+#| eval: false
+py$Psq(3)
+```
+:::
+
+. . .
+
+::: box1
+También es posible ejecutar código R en Python utilizando la libraría [rpy2](https://rpy2.github.io/)
+:::
+
+## Programando en R
+
+::: box3
+En lo que resta del curso, asumiremos que se tiene un nivel básico de R; esto es, conocer los operadores básicos de R: funciones, operaciones matemáticas y objectos (vectores, escalares, etc.)
+:::
+
+Para una introducción a R, ver [Introducción a R](https://cran.r-project.org/doc/contrib/R-intro-1.1.0-espanol.1.pdf) del **R Development Core Team**
+
+![](images/lecture_3/workflow_meme.png){width=40% fig-align="center"}
+
+
+## Tipos de Datos
+
+> Cada objeto en R es de un tipo base y sólo **R-core** puede crear nuevos tipos
+
+### Tipos de datos base
+
+> Existen 5 tipos de datos base: `double`, `integer`, `complex`, `logical` y `character`. Estos también pueden ser tipo `NULL`.
+
+Sin importar la complejidad del análisis, **en R todos los datos son interpretado como alguno de estos tipos base**
+
+```{r}
+#| echo: true
+typeof(3.14)
+typeof(1L)
+typeof(3i)
+typeof(TRUE)
+typeof('ifop')
+typeof(NULL)
+```
+
+## Estructuras de Datos
+### Matrices (arreglos)
+
+> Una característica distintiva de las matrices es que todos los valores son del mismo tipo de dato
+
+### Vectores y coerción de tipos 
+
+> Los vectores son matrices 1-dimensionales.
+
+:::{.fragment}
+```{r}
+#| echo: true
+vector <- vector(length = 3)
+vector
+typeof(vector)
+vector_char <- vector(mode = "character", length = 3)
+vector_char
+typeof(vector_char)
+```
+:::
+
+:::{.notes}
+Esto permite un cálculo eficiente y matemáticas matriciales. La rigurosidad también tiene unas consecuencias realmente importantes que introducen otro concepto clave en R, el de coerción.
+
+Si no se escoge un tipo de dato, por defecto será tipo lógical.
+:::
+
+## Coerción
+
+¿Qué producirá el siguiente código?:
+
+```{r}
+#| echo: true
+ex <- c(2,6,"3")
+```
+
+. . .
+
+**Respuesta:**
+
+```{r}
+ex
+```
+
+> En lo anterior, se realizó una coerción de tipo. No tener claridad de cómo funciona esto, es lo que usualmente dificulta programar correctamente un código en R.
+
+. . .
+
+**La coerción ocurre cuando ingresamos datos de distinto tipo en un objeto que sólo permite que sus valores sean de un sólo tipo**
+
+:::box3
+**Reglas de coerción:**
+
+`logical -> integer -> numeric -> complex -> character`
+:::
+
+*Leemos `->` como "puede ser transformado en"*
+
+## Ejemplos de coerción
+
+### logical -> character
+
+:::{.fragment}
+```{r}
+#| echo: true
+c("a", TRUE)
+```
+:::
+
+:::{.fragment}
+```{r}
+#| echo: true
+c("FALSE", TRUE)
+```
+:::
+
+:::{.fragment}
+### logical -> numeric
+
+```{r}
+#| echo: true
+c(0, TRUE)
+```
+:::
+
+:::{.fragment}
+
+**Es posible forzar una coerción utilizando `as.`**
+
+```{r}
+#| echo: true
+chars <- c("0","3","4")
+as.numeric(chars)
+as.logical(chars)
+as.logical(as.numeric(chars))
+as.numeric(c("FALSE", TRUE))
+```
+:::
+
+## Listas
+
+> Las listas puede guardar objetos de cualquier tipo o clase
+
+. . .
+
+```{r}
+#| echo: true
+list(1, "a", TRUE)
+```
+
+## Objectos S3, S4 Y S6
+
+> Las matrices y listas tienen un tipo base inmutable. En contraste, en R existen los objetos S3, S4 y S6; siendo S3 el más común.
+
+. . .
+
+**Estos objetos tienen un atributo de clase, que permite que existan funcionalidad especificas para aquella clase. Esto es una característica principal de la programación orientada a objetos**
+
+. . .
+
+### Data.frames
+
+> El objeto S3 más importante en R es el data.frame, que son un tipo especial de lista
+
+```{r}
+#| echo: true
+df <- data.frame(id = 1:3, 
+                 tratamiento = c("a", "b", "b"), 
+                 estado = c(TRUE, TRUE, FALSE))
+df
+```
+
+## Data.frames
+
+```{r}
+#| echo: true
+typeof(df)
+class(df)
+sloop::otype(df)
+```
+
+##  {background-image="images/tidyverse-default.png" .small}
+
+::: box1
+Tidyverse es un sistema coherente de paquetes para manipulación, exploración y visualización de datos que comparten una filosofía de diseño común.
+:::
+
+. . .
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+::: box1
+**Ventajas:**
+
+- Funciones consistentes
+- Cobertura de flujo de trabajo
+- Enfoque parsimonioso para el desarrollo de herramientas
+:::
+
+## Flujo de trabajo
+
+![](images/program.png){width=60% fig-align="center"}
 
