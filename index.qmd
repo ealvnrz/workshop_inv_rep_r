@@ -609,31 +609,6 @@ La diferencia radica en que una máquina virtual incluye un sistema operativo ju
 ![](images/binderhub.svg){width=60% fig-align="center"}
 
 
-## YAML
-
-> YAML es un formato de *serialización* de datos que puede ser leído fácilmente. Su uso es amplio, desde Acciones en GitHub hasta Quarto
-
-Un ejemplo de YAML que difine un **ambiente computacional** podría ser:
-
-```
-# Define the operating system as Linux
-os: linux
-
-# Use the xenial distribution of Linux
-dist: xenial
-
-# Use the programming language Python
-language: python
-
-# Use version of Python 3.2
-python: 3.2
-
-```
-
-::: box3
-YAML nos será de particular interés para la creación de documentos y presentaciones reproducibles, utilizando quarto.
-:::
-
 ## Caso práctico
 
 ::: box1
@@ -1883,7 +1858,7 @@ Podemos utilizar `parsnip_addin()` para ver los modelos compatibles con el paque
 
 ![](images/recipes.png){width=70% fig-align="center"}
 
-# Módulo 5: Casos prácticos
+# Módulo 5: Casos prácticos {background-color="#40666e"}
 
 ## Ejemplo práctico
 
@@ -2171,7 +2146,7 @@ El conjunto de datos contiene un gran registro (entre 1905-2019) de varios *peak
 
 
 
-# Módulo 6: Difusión de resultados
+# Módulo 6: Difusión de resultados {background-color="#40666e"}
 
 ## Rmarkdown & Quarto
 
@@ -2218,6 +2193,33 @@ Los archivos `Quarto` fueron diseñados para ser usados de tres maneras:
 2.  Texto en formato `Quarto`
 3.  Bloques de código (`R`, `Python`, `Julia`, `Observable`)
 
+
+## YAML
+
+> YAML es un formato de *serialización* de datos que puede ser leído fácilmente. Su uso es amplio, desde Acciones en GitHub hasta Quarto
+
+Un ejemplo de YAML que difine un **ambiente computacional** podría ser:
+
+```
+# Define the operating system as Linux
+os: linux
+
+# Use the xenial distribution of Linux
+dist: xenial
+
+# Use the programming language Python
+language: python
+
+# Use version of Python 3.2
+python: 3.2
+
+```
+
+::: box3
+YAML nos será de particular interés para la creación de documentos y presentaciones reproducibles, utilizando quarto.
+:::
+
+
 ## Herramientas
 
 El contenido del documento puede estar escrito utilizando diferentes formatos, entre ellos:
@@ -2233,13 +2235,11 @@ El contenido del documento puede estar escrito utilizando diferentes formatos, e
 2.  File \> New File \> Quarto Document
 3.  Definir características del documento
 
-## Hello.qmd
-
-1.  Bajar el siguiente archivo: [\_hello.qmd](https://quarto.org/docs/get-started/hello/rstudio/_hello.qmd)
-
-2.  Compilar
 
 # Markdown
+
+![](images/Markdown_logo.png){width="30%" fig-align="center"}
+
 
 ## Formato de Texto
 
@@ -2302,7 +2302,9 @@ El contenido del documento puede estar escrito utilizando diferentes formatos, e
 }
 </style>
 ```
-## Links e Imágenes
+
+
+## Links e Imágenes {.small}
 
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 | Markdown Syntax                                                          | Output                                                                                                              |
@@ -2315,22 +2317,24 @@ El contenido del documento puede estar escrito utilizando diferentes formatos, e
 | [Quarto](https://quarto.org)                                             |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | ![Caption](images/ifop.png){fig-alt="Logo IFOP"}                                                                    |
-| ![Caption](images/ifop.png)                                              |                                                                                                                     |
+| ``` markdown                                                             | ![Caption](images/ciencia_usm.png){width="20%" fig-alt="Logo USM"}                                                  |
+| ![Caption](images/ciencia_usm.png)                                       |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![Caption](images/ifop.png)](https://quarto.org)                                                                   |
-| [![Caption](images/ifop.png)](https://quarto.org)                        |                                                                                                                     |
+| ``` markdown                                                             | [![Caption](images/ciencia_usm.png){width="20%"}](https://quarto.org)                                               |
+| [![Caption](images/ciencia_usm.png)](https://quarto.org)                 |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![Caption](images/ifop.png "An elephant"){fig-alt="A line drawing of an elephant."}](https://quarto.org)           |
-| [![Caption](images/ifop.png)](https://quarto.org "Logo IFOP")            |                                                                                                                     |
+| ``` markdown                                                             | [![Caption](images/ciencia_usm.png "Ciencia abierta"){width="20%" fig-alt="Logo USM"}](https://quarto.org)          |
+| [![Caption](images/ciencia_usm.png)](https://quarto.org "Logo USM")      |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| ``` markdown                                                             | [![](images/ifop.png){fig-alt="A line drawing of an elephant."}](https://quarto.org)                                |
-| [![](images/ifop.png){fig-alt="Alt text"}](https://quarto.org)           |                                                                                                                     |
+| ``` markdown                                                             | [![](images/ciencia_usm.png){width="20%" fig-alt="Alt text."}](https://quarto.org)                                  |
+| [![](images/ciencia_usm.png){fig-alt="Alt text"}](https://quarto.org)    |                                                                                                                     |
 | ```                                                                      |                                                                                                                     |
 +--------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+
+
 
 ## Listas {.small}
 
