@@ -216,7 +216,7 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 
 ## Quarto
 
-![](images/quarto.png){width=60% fig-align="center"}
+![](images/quarto.png){width=50% fig-align="center"}
 
 [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 
@@ -437,29 +437,10 @@ La diferencia radica en que una máquina virtual incluye un sistema operativo ju
 
 ![](images/Anaconda_Logo_RGB_Corporate_stacked_300x225_2x-1.png){width=40% fig-align="center"}
 
-## Ejemplos: BinderHub
+## BinderHub
 
 ![](images/binderhub.svg){width=60% fig-align="center"}
 
-## Pasos para crear un ambiente en BinderHub
-
-1. [Entrar a Binder](https://mybinder.org/)
-2. Crear un repositorio usando el siguiente *template*: [binder-r](https://github.com/binder-examples/r)
-3. Subir archivos al repositorio.
-4. Modificar archivo `install.R` con los paquetes necesarios
-5. Modificar `runtime.txt` con la versión de R necesaria
-  - Para ver la versión de R con la que se está trabajando: `version` en la consola de 
-6. Modificar `README.md` con la dirección del repositorio, por ejemplo:
-
-. . .
-
-:::{.frament}
-`http://mybinder.org/v2/gh/binder-examples/r/master?urlpath=rstudio` 
-
-cambia a
-
-`http://mybinder.org/v2/gh/ealvnrz/binder-r-test/master?urlpath=rstudio`
-:::
 
 ## YAML
 
@@ -501,7 +482,740 @@ Generaremos un proyecto desde cero que tenga las siguientes características:
 # Módulo 4: Herramientas básicas {background-color="#40666e"}
 
 
-## R & RStudio
+# LaTeX
+
+![](images/LaTeX_logo.png){.absolute width="900" height="400" top="200" left="350"}
+
+## ¿Que es LaTeX?
+
+**Software de composición de textos**
+
+::: box1
+-   **Consiste en un software de uso libre**, capaz de generar documentos escritos de alta calidad.
+
+-   **Le da prioridad a la estructura lógica del texto**, permitiendo mantener una mayor trazabilidad y orden en el contenido.
+
+-   **Se utiliza ampliamente en el contexto de artículos y documentación científica**, debido a su facilidad para trabajar formulas matemáticas.
+:::
+
+## LaTeX vs Word
+
+![](images/word_vs_latex_1_esp.png){width="70%" fig-align="center"}
+
+## LaTeX vs Word
+
+|     Categoría    |                                                   MS Word                                                  |                                        LaTeX                                        |
+|:----------------:|:----------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+| Facilidad de uso |                                         Relativamente fácil de usar                                        | Difícil de aprender. Fácil una vez que se entiende la estructura de los documentos. |
+|    Eficiencia    |                               Excelente para documentos cortos. No escalable.                              |      OK para documentos cortos. Excelente para documentos técnicos y extensos.      |
+|      Calidad     | Es posible redactar documentos bien formateados, pero requiere mucho tiempo dada las limitaciones de word. |                    Fácil creación de documentos bien formateados.                   |
+|  Características |                                           Herramientas limitadas.                                          |                         Muchas herramientas vía extensiones.                        |
+|      Precio      |                         De pago, pero existen alternativas gratis como Google Docs.                        |                                 Gratis (Open-source)                                |
+
+## Instalación de LaTeX
+
+**$\LaTeX$ local:**
+
+- [MiKTEX](https://miktex.org/): ![](images/AppIcon.svg){.absolute width=40% top="70" right="70"}
+
+- [TexLive](https://tug.org/texlive/): ![](images/20062137.png){.absolute width=30% bottom="80" left="100"}
+
+## Instalación de LaTeX
+
+**$\LaTeX$ online:**
+
+- [Overleaf](https://www.overleaf.com/): ![](images/overleaf.png){.absolute width=40% top="70" right="70"}  
+
+- [Papeeria](https://papeeria.com/):  ![](images/papeeria.png){.absolute width=30% bottom="80" left="100"}
+
+## Usos de Latex
+
+- **Documentos Académicos**
+
+- **Libros y Revistas**
+
+- **Presentaciones**
+
+- **Documentos Técnicos**
+
+- **Documentos Matemáticos y Científicos**
+
+- **Cartas y Documentos Formales**
+
+- **Generación Automatizada de Documentos**
+
+::: {.r-stack}
+::: {.fragment .fade-in-then-out}
+::: box2
+Ofrece flexibilidad, manteniendo un formato coherente y formal, además de tener la capacidad de gestionar referencias cruzadas, bibliográficas y fórmulas matemáticas.
+:::
+:::
+:::
+
+::: notes
+**Documentos Académicos**: Ideal para escribir artículos de investigación, tesis, disertaciones y trabajos académicos en general. Su capacidad para gestionar referencias cruzadas, bibliográficas y fórmulas matemáticas lo convierte en una opción ideal para proyectos académicos complejos.
+
+**Libros y Revistas**: Muchos autores y editoriales utilizan LaTeX para la composición de libros, manuales técnicos y revistas científicas debido a su flexibilidad y capacidad para mantener un formato coherente y profesional.
+
+**Presentaciones**: Si bien el formato más común para las presentaciones es PowerPoint, LaTeX ofrece una alternativa con alta calidad tipográfica para crear diapositivas utilizando la clase "beamer".
+
+**Documentos Técnicos**: LaTeX es utilizado para crear documentos técnicos como informes, manuales, documentación de software y guías de usuario debido a su capacidad para estructurar y formatear el contenido de manera clara y coherente.
+
+**Documentos Matemáticos y Científicos**: LaTeX es muy apreciado en la comunidad científica debido a su excelente soporte para notación matemática y símbolos especiales. Es ampliamente utilizado en campos como matemáticas, física, ingeniería y ciencias de la computación.
+
+**Cartas y Documentos Formales**: LaTeX permite crear cartas y documentos formales con un diseño profesional y elegante.
+
+**Generación Automatizada de Documentos**: Algunas personas utilizan LaTeX para generar automáticamente informes y documentos con datos variables a partir de bases de datos o sistemas externos.
+
+:::
+
+## Herramientas para escribir en LaTeX
+
+Definidos como **Editores de texto**, consisten en la aplicación que le permite a un usuario escribir el LaTeX.
+
+::: box2
+
+- **Editores de Latex**: Creados exclusivamente para escribir en LaTeX.
+![](images/texworks.png){.absolute width="150" height="150" bottom="100" left="100"}
+
+- **Editores de Texto Avanzado**: Abarcan mas lenguajes que LaTeX.
+![](images/visual_studio.png){.absolute width="150" height="150" bottom="100" left="700"}
+
+- **Editores en Línea**: Basados en el navegador con funciones de colaboración en tiempo real.
+![](images/overleaf.png){.absolute width="150" height="150" bottom="100" left="1300"}
+:::
+
+## Elementos basicos de LaTeX
+
+![](images/piezas.png){width="30%" fig-align="center"}
+
+::: box3
+Para la siguiente parte del curso usaremos [Overleaf](https://www.overleaf.com/)
+:::
+
+
+## Estructura básica de LaTeX
+
+<div style="text-align: center;padding: 20px; font-size: 100px; margin-top: 200px">
+**Formato** $\rightarrow$ **Portada** $\rightarrow$ **Contenido**
+</div>
+
+## Formato
+
+
+::: box1
+Antes de empezar a editar la portada o el contenido del documento es importante definir los parámetros que condicionaran el formato y el orden que seguirá el texto.
+:::
+
+
+### Definición del Documento de LaTeX: *documentclass\{ }*
+
+```latex
+\documentclass{article}
+```
+
+### Paquetes: *usepackage\{ }*
+
+Algunas funciones requieren de paquetes (librerías) para que el software las reconozca.
+Para aprovechar estas funciones se debe especificar que paquetes deben ser reconocidos a la hora de compilar el documento
+
+
+```latex
+\usepackage{package}
+```
+## Paquetes principales
+
+::: box2
+<div style = "font-size: 30px">
+**graphicx**: Permite la inclusión y manipulación de gráficos, imágenes y figuras en el documento.
+
+**amsmath**: Proporciona mejoras en la composición de fórmulas matemáticas y símbolos.
+
+**babel**: Facilita la escritura de documentos en diferentes idiomas, adaptando la tipografía y reglas de formato correspondientes.
+
+**inputenc**: Permite la especificación del juego de caracteres de entrada, por ejemplo UTF-8.
+
+**fontenc**: Define cómo los caracteres se representan en el documento final y permite utilizar fuentes con codificación T1, entre otras.
+
+**hyperref**: Permite la creación de enlaces internos y externos en el documento.
+
+**geometry**: Facilita el ajuste de los márgenes y tamaños de página del documento.
+
+**fancyhdr**: Permite personalizar los encabezados y pies de página.
+
+**listings**: Permite resaltar y formatear código fuente de programación.
+
+**float**: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
+</div>
+:::
+
+
+
+::: notes
+graphicx: Permite la inclusión y manipulación de gráficos, imágenes y figuras en el documento.
+
+amsmath: Proporciona mejoras en la composición de fórmulas matemáticas y símbolos.
+
+babel: Facilita la escritura de documentos en diferentes idiomas, adaptando la tipografía y reglas de formato correspondientes.
+
+inputenc: Permite la especificación del juego de caracteres de entrada, por ejemplo, UTF-8.
+
+fontenc: Define cómo los caracteres se representan en el documento final y permite utilizar fuentes con codificación T1, entre otras.
+
+hyperref: Permite la creación de enlaces internos y externos en el documento, así como la generación de hipervínculos y marcadores para la navegación en documentos electrónicos.
+
+geometry: Facilita el ajuste de los márgenes y tamaños de página del documento.
+
+fancyhdr: Permite personalizar los encabezados y pies de página.
+
+natbib o biblatex: Ayudan en la gestión de bibliografías y citas bibliográficas.
+
+listings: Permite resaltar y formatear código fuente de programación.
+
+float: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
+:::
+
+## Templates
+
+::: box1
+[Overleaf](https://www.overleaf.com/) nos entrega un sin fin de *templates* para nuestros documentos. Disponibles [aquí](https://www.overleaf.com/latex/templates)
+:::
+
+
+![](images/templates.png){width="70%" fig-align="center"}
+
+## Ejemplo básico
+
+**Creación del Documento y definición de parámetros.**
+
+``` latex
+\documentclass{article}  %Definición del Documento
+
+\usepackage[spanish]{babel}  %Configuración de Idioma
+
+\usepackage[letterpaper,
+            top=2cm,
+            bottom=2cm,
+            left=3cm,
+            right=3cm,
+            marginparwidth=1.75cm]{geometry} %Parámetros 
+
+%Paquetes de ejemplo
+
+\usepackage[utf8]{inputenc}
+\usepackage{underscore}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{datetime}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\newdateformat{monthyeardate}{%
+\monthname[\THEMONTH], \THEYEAR}
+
+\title{Latex}  %Titulo
+\author{Eloy Alvarado}      %Autor
+
+\begin{document}  %Inicio del Contenido
+```
+
+## Portada
+
+:::: {.columns}
+
+::: {.column}
+<div style="padding: 20px;">
+</div>
+
+``` latex
+\begin{titlepage} %Inicio portada
+
+%Imagen
+\begin{figure}[h]
+\vspace{10mm}  %Espacio Vertical
+\centering
+\includegraphics[scale=0.15]{logo_usm.png} %Logo USM
+\end{figure}
+
+\vspace{50mm}
+\begin{center} 
+\hrule         %Linea Horizontal
+\vspace{2mm}
+{\Huge \textbf{\sc Presentación}}\\ %Titulo
+\vspace{2mm}
+{\Large \sc{Latex}}
+\vspace{2mm}
+\hrule
+\vspace{1cm}
+
+
+\centering
+\textbf{Autor:     Eloy Alvarado} \\ %Autor
+
+\vfill
+\textsc{\monthyeardate\today}\\[0.5cm] %Fecha
+\end{center}
+
+
+\end{titlepage}
+```
+:::
+
+::: {.column} 
+
+::: box4
+<img src="images/portada.png" alt="Portada" style="border: 2px solid black; width: 600px; margin-left: 100px">
+:::
+:::
+
+
+::::
+
+
+## Contenido
+
+
+:::: {.columns}
+::: {.column}
+<div style="padding: 20px;">
+</div>
+
+``` latex
+\section{Contenido}
+
+\justifying
+En este documento de LaTeX, se presenta de manera 
+detallada y exhaustiva el contenido que se puede 
+incluir en el mismo. A través del lenguaje de 
+marcado LaTeX, es posible crear y formatear textos
+de forma justificada, permitiendo así una 
+presentación clara y profesional. Además, LaTeX 
+ofrece la flexibilidad para incorporar fórmulas
+matemáticas dentro del propio texto, lo que resulta 
+especialmente útil para expresar
+conceptos matemáticos de manera precisa y elegante.
+
+\subsection{Formato de Texto}
+LaTeX entrega la libertad de modificar el texto 
+según las necesidades de quien edita, permitiendo: 
+
+\begin{itemize}
+    \item Textos centrados:
+    
+            LaTeX \centering
+
+    \item Textos a la derecha: \justifying
+
+            LaTeX \raggedleft
+
+    \item Textos en Negrita: \textbf{LaTeX} 
+    \justifying
+
+    \item Textos en Cursiva: \textit{LaTeX}  
+
+    \item Textos en otra tipografía: \texttt{LaTeX}
+\end{itemize}
+
+Entre muchas opciones más.
+
+\justifying
+\subsection{Matemática}
+
+Respecto a la matemática, la principal 
+de este software, existen múltiples de 
+materializarla.
+
+\vspace{10mm}
+
+\textbf{Modo de ecuación numerada}: para que 
+el documento asocie la ecuación a un numero de 
+forma automática permitiendo hacer referencia
+a ella en el texto.
+
+\centering
+\begin{math}
+\sqrt{x^2+1}
+\end{math}
+
+\justifying
+
+\vspace{10mm}
+
+\textbf{Modo de ecuación sin enumerado}: Para que 
+quede centrada y quede en una linea separada, 
+dandole mas enfasís.
+
+\[\sqrt{x^2+1}\] 
+
+$$\sqrt{x^2+1}$$
+
+\textbf{Modo en línea}: para incluir formulas
+dentro del texto $\sqrt{x^2+1}$
+
+\end{document}
+```
+:::
+
+
+::: {.column}
+<img src="images/contenido.png" alt="Portada" style="border: 2px solid black; width: 600px; margin-left: 100px">
+:::
+::::
+
+## Texto
+
+El texto en Latex se escribe directamente, si es que no se le desea asignar algún formato.
+
+```latex
+El término neolatino 'Plantae' y el castellano 'plantas' 
+derivan del latín planta (brote, retoño), plantare 
+(quedarse allí donde las plantas de los pies tocan el suelo).
+Desde este punto de vista, podríamos llamar planta a cualquier
+ser plantado en el suelo o en un sustrato; sin embargo, 
+podemos ver excepciones en algunos briófitos y en la angiosperma
+lenteja de agua, que no están fijos, pero los consideramos plantas.
+```
+
+<br>
+
+
+:::{style="border: 2px solid black"}
+![](images/texto_planta_uno.png){width="100%" fig-align="center"}
+:::
+
+
+
+## Texto
+
+Para destacar y darle un formato especifico al texto anterior existen múltiples comandos, siendo los principales 
+
+``` text
+\textbf{Texto en Negrita}
+\textit{Texto en Cursiva}
+```
+
+Ajustando el texto anterior
+
+```latex
+El término neolatino \textit{'Plantae'} y el castellano \textit{'plantas'} 
+derivan del latín \textbf{planta} (brote, retoño), \textbf{plantare} 
+(quedarse allí donde las plantas de los pies tocan el suelo).
+Desde este punto de vista, podríamos llamar planta a cualquier
+ser plantado en el suelo o en un sustrato; sin embargo, 
+podemos ver excepciones en algunos \textbf{briófitos} y en la \textbf{angiosperma}
+lenteja de agua, que no están fijos, pero los consideramos plantas.
+```
+<br>
+
+![](images/texto_con_formato.png){width="70%" fig-align="center" style="border: 2px solid black"}
+
+## Parrafos
+
+Para separar párrafos en LaTeX, basta con colocar una linea en blanco entre párrafos.
+
+
+```latex
+...sin embargo, podemos ver excepciones en algunos \textbf{briófitos} y 
+en la \textbf{angiosperma} lenteja de agua, que no están fijos, pero 
+los consideramos plantas.
+
+Por otro lado, el concepto moderno de planta, viene del sistema de 
+clasificación de Haeckel, quien descarta el antiguo reino vegetal,
+creando un nuevo reino Plantae con un sentido más natural y con sus
+características comunes, por lo que este nuevo reino no admite como
+miembros a otros organismos que no están relacionados con las plantas
+terrestres, como sucede con las bacterias, los hongos y las protistas en general.
+```
+<div style="padding: 20px;">
+</div>
+
+::: box1
+Es necesario tener el paquete **parskip** para que lo anterior funcione
+:::
+
+## Jerarquía de Texto
+
+LaTeX basa su jerarquía en **Secciones** y **Subsecciones**, las cuales son ordenadas automáticamente según el orden lógico que siguen.
+
+``` latex
+\section{Planeta}
+Tierra
+
+\subsection{Pais}
+Chile
+
+\subsubsection{Ciudad}
+Santiago de Chile
+```
+<p align="center">
+  <img src="images/ejemplo_jerarquia_texto.png" alt="Portada" style="border: 2px solid black; width: 600px;">
+</p>
+
+## Listados
+Para hacer un listado en LaTeX se tiene que empezar una **"Itemización"** o **"Enumeración"**.
+<div style="padding: 20px;">
+</div>
+Los elementos de estos listados se denominan **items**:
+
+
+::::{.columns}
+::: {.column}
+```latex
+\subsubsection{Números}
+
+\begin{enumerate}
+  \item Uno
+  \item Dos
+  \item Tres
+\end{enumerate}
+```
+<p align="center">
+  <img src="images/ejemplo_numeros.png" alt="Portada" style="border: 2px solid black; width: 300px;">
+</p>
+:::
+
+::: {.column}
+```latex
+\subsubsection{Animales}
+
+\begin{itemize}
+  \item León
+  \item Perro
+  \item Gato
+\end{itemize}
+```
+<p align="center">
+  <img src="images/ejemplo_animales.png" alt="Portada" style="border: 2px solid black; width: 300px;">
+</p>
+:::
+::::
+
+## Referencias y Bibliografia
+
+::: box1
+Para Insertar citas y referencias es necesario adjuntar al documento de LaTeX un archivo *bib* (Base de datos en BibTex) que contendrá la información bibliográfica de las fuentes citadas en el documento.
+:::
+
+Las entradas en este documento tienen la siguiente sintaxis:
+
+```latex
+@article{Smith2021,  %Identificador de Referencia
+  author = {John Smith and María López},
+  title = {Environmental Challenges in Chile: A Case Study of the Atacama Desert},
+  journal = {Environmental Science Journal},
+  volume = {25},
+  number = {3},
+  pages = {201--215},
+  year = {2021},
+  doi = {10.12345/esj.2021.25.3.201},
+  publisher = {Springer}
+}
+```
+
+Si se desease utilizar la referencia anterior en una cita se debe adjuntar el comando 
+
+```latex
+\cite{Smith2021}
+```
+
+## Gestión Bibliográfica
+
+:::box1 
+Si bien en $\LaTeX$ requiere un archivo `.bib` que guarde las referencias que utilizaremos, existen gestores de referencias bibliográficas que nos permiten construir fácilmente este archivo.
+:::
+
+::: {.r-stack}
+![](images/jabref_logo-300x138.png){.fragment}
+
+![](images/1200px-Zotero_logo.svg.png){.fragment width="20%"}
+
+![](images/mdly-portrait.png){.fragment .absolute width="15%" top="310" right="100"}
+:::
+
+- [JabRef](https://www.jabref.org/)
+- [Zotero](https://www.zotero.org/)
+- [Mendeley](https://www.mendeley.com/)
+
+## Bibliografía
+
+Para incorporar la bibliografía al texto incluímos:
+
+```{latex}
+\bibliographystyle{plain}
+\bibliography{refs}
+```
+
+# ¿Por qué Latex?
+
+- En términos Visuales, la calidad tipográfica genera documentos con un aspecto profesional y agradable a la vista. 
+
+- Por su construcción lógica, LaTeX separa el contenido del documento de su formato, lo que garantiza una consistencia y uniformidad en la apariencia del documento.
+
+- Ofrece alta Portabilidad debido a que los documentos LaTeX son compatibles con múltiples plataformas, facilitando la colaboración y el intercambio de documentos.
+
+- Es muy cómodo para la construcción y composición de expresiones matemáticas complejas.
+
+::: notes
+Tipografía de alta calidad: LaTeX produce documentos con una calidad tipográfica superior, ya que utiliza algoritmos avanzados para el espaciado, justificación y disposición de texto. Esto da como resultado un aspecto más profesional y agradable a la vista.
+
+Gestión avanzada de referencias y bibliografías: LaTeX facilita la gestión de citas y bibliografías a través de herramientas como BibTeX y biblatex. Esto permite una gestión más fácil y precisa de las referencias y citaciones bibliográficas.
+
+Fórmulas matemáticas: LaTeX es excepcional para componer ecuaciones y expresiones matemáticas complejas. Su sintaxis sencilla permite una escritura más rápida y precisa de fórmulas, y los resultados son de alta calidad tipográfica.
+
+Estilo y formato uniforme: LaTeX separa el contenido del documento de su formato, lo que garantiza una consistencia y uniformidad en la apariencia del documento. Esto es especialmente útil en documentos largos y complejos.
+
+Compatibilidad con control de versiones: Los documentos LaTeX son archivos de texto plano, lo que facilita el uso de sistemas de control de versiones como Git. Esto es muy útil para colaborar en proyectos y rastrear cambios en el documento con precisión.
+
+Automatización y eficiencia: LaTeX es un sistema de composición, lo que significa que los usuarios pueden concentrarse en el contenido y la estructura del documento, mientras LaTeX se ocupa del diseño y la disposición. Esto permite una mayor eficiencia en la creación de documentos complejos.
+
+Portabilidad: Los documentos LaTeX son compatibles con prácticamente cualquier plataforma o sistema operativo, lo que facilita la colaboración y el intercambio de documentos.
+
+Gratuito y de código abierto: LaTeX es software gratuito y de código abierto, lo que significa que cualquier persona puede utilizarlo, modificarlo y distribuirlo libremente.
+:::
+
+## Escritura técnica
+
+:::: {.columns}
+::: {.column}
+\begin{equation}
+z=\overbrace{\underbrace{x}_\text{real}+i\underbrace{y}_\text{imaginario}}^\text{numero complejo}
+\end{equation}
+:::
+
+::: {.column}
+<div style="padding: 20px;">
+</div>
+```latex
+\begin{equation}
+z=\overbrace{\underbrace{x}_\text{real}+
+i\underbrace{y}_\text{imaginario}}
+^\text{numero complejo}
+\end{equation}
+```
+:::
+
+::::
+
+:::: {.columns}
+::: {.column}
+\begin{equation}
+A \xleftarrow{\text{Izquierda}} B 
+  \xrightarrow[\text{Derecha}]{ } C
+\end{equation}
+:::
+
+::: {.column}
+<div style="padding: 20px;">
+</div>
+
+```latex
+\begin{equation}
+A \xleftarrow{\text{Izquierda}} B 
+  \xrightarrow[\text{Derecha}]{ } C
+\end{equation}
+``` 
+:::
+::::
+
+:::: {.columns}
+<div style="padding: 20px;">
+</div>
+:::{.column}
+\begin{equation}
+  x = a_0 + \frac{1}{a_1 +
+  \frac{1}{a_2 +
+  \frac{1}{a_3 +
+  a_4}}}
+\end{equation}
+:::
+
+:::{.column}
+<div style="padding: 20px;">
+</div>
+```tex
+\begin{equation}
+  x = a_0 + \frac{1}{a_1 +
+  \frac{1}{a_2 +
+  \frac{1}{a_3 + a_4}}}
+\end{equation}
+```
+:::
+::::
+
+## Cartas Gantt 
+
+El paquete `pgfgantt` nos permite fácilmente crear cartas gantt, para ello debemos agregarlo en el preámbulo del documento.
+
+```latex
+\usepackage{pgfgantt}
+```
+Un ejemplo sencillo de carta gantt es el siguiente:
+
+```latex
+\begin{ganttchart}{1}{12}
+\gantttitle{2011}{12} \\
+\gantttitlelist{1,...,12}{1} \\
+\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Task 1}{1}{2} \\
+\ganttlinkedbar{Task 2}{3}{7} \ganttnewline
+\ganttmilestone{Milestone}{7} \ganttnewline
+\ganttbar{Final Task}{8}{12}
+\ganttlink{elem2}{elem3}
+\ganttlink{elem3}{elem4}
+\end{ganttchart}
+``` 
+## Cartas Gantt
+
+::::{.columns}
+
+:::{.column}
+```latex
+\begin{ganttchart}{1}{12}
+\gantttitle{2011}{12} \\
+\gantttitlelist{1,...,12}{1} \\
+\ganttgroup{Group 1}{1}{7} \\
+\ganttbar{Task 1}{1}{2} \\
+\ganttlinkedbar{Task 2}{3}{7} \ganttnewline
+\ganttmilestone{Milestone}{7} \ganttnewline
+\ganttbar{Final Task}{8}{12}
+\ganttlink{elem2}{elem3}
+\ganttlink{elem3}{elem4}
+\end{ganttchart}
+``` 
+:::
+
+:::{.column}
+![](images/gantt.png){width="90%" fig-align="center"}
+
+:::
+::::
+
+La documentación de este paquete se encuentra en [CTAN](http://mirrors.ctan.org/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf).
+
+## Overleaf + GitHub
+
+Overleaf tiene integraciones con distintas herramientas:
+
+- Dropbox
+- GitHub
+- Mendeley
+- Zotero
+
+. . .
+
+entre otros. Sin embargo, muchas de estas integratciones requieren **una cuenta premium**.
+
+## Ejercicio práctico
+
+::: box1
+Escoger un informe y replicar su contenido en $\LaTeX$ (incluida la bibliografía), guardando el proyecto en un repositorio GitHub.
+
+Para esto se puede usar un template o desde cero.
+
+:::
+
+
+# R & RStudio
 
 ![](images/r-rstudio-logos.png){width=50% fig-align="center"}
 
