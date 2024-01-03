@@ -18,6 +18,94 @@ lang: es
 bibliography: refs.bib
 ---
 
+# Módulo 1: Introducción a la Investigación Reproducible {background-color="#40666e"}
+
+## ¿Qué es la Investigación Reproducible?
+
+
+![](images/reproducibility.jpg){width=70% fig-align="center"}
+
+## Investigación Reproducible
+
+::: box1
+Es la práctica de conducir estudios científicos o basados en datos de tal manera que **permita a otros replicar o reproducir los resultados usando los mismos datos, códigos y metodologías**.
+:::
+
+::: {.r-stack}
+::: {.fragment .fade-in-then-out}
+![](images/git_github.png){width=50% fig-align="center"}
+:::
+::: {.fragment .fade-in-then-out}
+![](images/LaTeX_logo.svg.png){width=50% fig-align="center"}
+:::
+::: {.fragment .fade-in-then-out}
+
+::: {layout-ncol=2}
+![](images/R_logo.svg.png){width=30% fig-align="left"}
+
+![](images/RStudio-Logo-Flat.png){width=70% fig-align="right"}
+:::
+:::
+
+::: {.fragment .fade-in-then-out}
+![](images/quarto.png){width=600px fig-align="center"}
+:::
+
+::: {.fragment .fade-in-then-out}
+![](images/flex.png){width=550px fig-align="center"}
+:::
+
+::: {.fragment .fade-in-then-out}
+![](images/shiny.png){width=30% fig-align="center"}
+:::
+:::
+
+
+## ¿Qué se entiende por un estudio Reproducible y Replicable? 
+
+### Reproducible
+
+> Los autores entregan todos los datos necesarios y los códigos computacionales para realizar el análisis nuevamente, recreando los resultados.
+
+### Replicable
+
+> Un estudio que llega a los mismos hallazgos científicos que otro estudio, recolectando nuevos datos (posiblemente con diferentes métodos) y completando nuevos análisis.
+
+
+## Clases de Reproducibilidad
+
+- **Reproducibilidad Computacional**: Cuando se proporciona información detallada sobre el código, *software*, *hardware* y detalles de la implementación
+
+- **Reproducibilidad Empírica**: Cuando se proporciona información detallada sobre experimentos y observaciones científicas empíricas no computacionales. En la práctica, esto se ocurre al hacer que los datos y los detalles de cómo se recopilaron estén disponibles de forma gratuita.
+
+- **Reproducibilidad Estadística**: Cuando se proporciona información detallada, por ejemplo, sobre la elección de pruebas estadísticas, parámetros del modelo y valores de umbral. Esto se relaciona principalmente con el registro previo del diseño del estudio para evitar la práctica de *p-value hacking* y otras manipulaciones.
+
+
+## Reproducibilidad
+
+![](images/reproducible-matrix.jpg){width=70% fig-align="center"}
+
+::: {.notes}
+- **Reproducible**: Un resultado es reproducible cuando los mismos pasos de análisis realizados en el mismo conjunto de datos producen consistentemente la misma respuesta.
+
+- **Replicable**: Un resultado es replicable cuando el mismo análisis realizado en diferentes conjuntos de datos produce respuestas cualitativamente similares.
+
+- **Robusto**: un resultado es rebusto cuando el mismo conjunto de datos se somete a diferentes flujos de trabajo de análisis para responder a la misma pregunta de investigación (por ejemplo, una flujo de trabajo escrito en R y otro escrita en Python) y se produce una respuesta cualitativamente similar o idéntica. Los resultados robustos muestran que el trabajo no depende de las especificidades del lenguaje de programación elegido para realizar el análisis.
+
+- **Generalizable**: la combinación de hallazgos replicables y robustos nos permite formar resultados generalizables. Hay que tener en cuenta que ejecutar un análisis en una implementación de software diferente y con un conjunto de datos diferente no proporciona resultados generalizados. Habrá muchos más pasos para saber qué tan bien se aplica el trabajo a todos los diferentes aspectos de la pregunta de investigación. La generalización es un paso importante para comprender que el resultado no depende de un conjunto de datos en particular ni de una versión particular del código de análisis.
+
+:::
+
+## Reproducibilidad
+
+![](images/reproducible-definition-grid.svg){width=70% fig-align="center"}
+
+
+
+
+
+
+
 ## Example slide
 
 ### This is a subtitle
