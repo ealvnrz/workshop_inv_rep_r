@@ -2467,3 +2467,11 @@ Crearemos un mismo documento en distintos formatos
 :::
 
 [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
+
+Just a test
+[@Moretti_2011]
+
+# References 
+
+::: {#refs}
+:::
