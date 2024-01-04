@@ -18,6 +18,7 @@ author:
     affiliations: Universidad de Santiago de Chile
 date: last-modified
 lang: es
+logo: images/logo_usm.png
 bibliography: refs.bib
 ---
 
@@ -743,7 +744,7 @@ Para la siguiente parte del curso usaremos [Overleaf](https://www.overleaf.com/)
 
 ## Estructura básica de LaTeX
 
-<div style="text-align: center;padding: 20px; font-size: 100px; margin-top: 200px">
+<div style="text-align: center;padding: 20px; font-size: 50px; margin-top: 100px">
 **Formato** $\rightarrow$ **Portada** $\rightarrow$ **Contenido**
 </div>
 
@@ -774,25 +775,16 @@ Para aprovechar estas funciones se debe especificar que paquetes deben ser recon
 
 ::: box2
 ::: {.small}
-**graphicx**: Permite la inclusión y manipulación de gráficos, imágenes y figuras en el documento.
-
-**amsmath**: Proporciona mejoras en la composición de fórmulas matemáticas y símbolos.
-
-**babel**: Facilita la escritura de documentos en diferentes idiomas, adaptando la tipografía y reglas de formato correspondientes.
-
-**inputenc**: Permite la especificación del juego de caracteres de entrada, por ejemplo UTF-8.
-
-**fontenc**: Define cómo los caracteres se representan en el documento final y permite utilizar fuentes con codificación T1, entre otras.
-
-**hyperref**: Permite la creación de enlaces internos y externos en el documento.
-
-**geometry**: Facilita el ajuste de los márgenes y tamaños de página del documento.
-
-**fancyhdr**: Permite personalizar los encabezados y pies de página.
-
-**listings**: Permite resaltar y formatear código fuente de programación.
-
-**float**: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
+- **graphicx**: Permite la inclusión y manipulación de gráficos, imágenes y figuras en el documento.
+- **amsmath**: Proporciona mejoras en la composición de fórmulas matemáticas y símbolos.
+- **babel**: Facilita la escritura de documentos en diferentes idiomas, adaptando la tipografía y reglas de formato correspondientes.
+- **inputenc**: Permite la especificación del juego de caracteres de entrada, por ejemplo UTF-8.
+- **fontenc**: Define cómo los caracteres se representan en el documento final y permite utilizar fuentes con codificación T1, entre otras.
+- **hyperref**: Permite la creación de enlaces internos y externos en el documento.
+- **geometry**: Facilita el ajuste de los márgenes y tamaños de página del documento.
+- **fancyhdr**: Permite personalizar los encabezados y pies de página.
+- **listings**: Permite resaltar y formatear código fuente de programación.
+- **float**: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
 :::
 :::
 
@@ -2103,19 +2095,6 @@ penguins %>%
 ## Flujo de trabajo
 
 ![](images/program_badges.png){width=60% fig-align="center"}
-
-## ChatGPT {background-image="images/chat-gpt-background-free-vector.jpg"}
-
-## ChatGPT en Rstudio
-
-El paquete [gptstudio](https://github.com/MichelNivard/gptstudio) nos permite interactuar con chatGPT dentro del entorno de RStudio. Sin embargo, actualmente se pide tener una cuenta de pago para poder utilizar la [API](https://platform.openai.com/account/api-keys).
-
-```{r}
-#| echo: true
-#| eval: false
-require(usethis)
-edit_r_environ()
-```
 
 ## {background-image="images/himalaya.jpeg"}
 
