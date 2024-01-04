@@ -1149,6 +1149,7 @@ Los elementos de estos listados se denominan **items**:
 
 ## Referencias y Bibliografia
 
+::: {.small}
 ::: box1
 Para Insertar citas y referencias es necesario adjuntar al documento de LaTeX un archivo *bib* (Base de datos en BibTex) que contendrá la información bibliográfica de las fuentes citadas en el documento.
 :::
@@ -1174,6 +1175,7 @@ Si se desease utilizar la referencia anterior en una cita se debe adjuntar el co
 ```latex
 \cite{Smith2021}
 ```
+:::
 
 ## Gestión Bibliográfica
 
@@ -1594,7 +1596,6 @@ Tidyverse es un sistema coherente de paquetes para manipulación, exploración y
 
 . . .
 
-<br>
 <br>
 <br>
 <br>
