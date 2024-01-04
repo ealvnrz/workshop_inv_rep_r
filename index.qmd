@@ -827,6 +827,7 @@ float: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
 
 **Creación del Documento y definición de parámetros.**
 
+::: {.small}
 ``` latex
 \documentclass{article}  %Definición del Documento
 
@@ -857,15 +858,17 @@ float: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
 
 \begin{document}  %Inicio del Contenido
 ```
+:::
 
 ## Portada
 
 :::: {.columns}
 
 ::: {.column}
-<div style="padding: 20px;">
+<div style="padding: 5px;">
 </div>
 
+::: {.small}
 ``` latex
 \begin{titlepage} %Inicio portada
 
@@ -900,10 +903,12 @@ float: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
 ```
 :::
 
+:::
+
 ::: {.column} 
 
 ::: box4
-<img src="images/portada.png" alt="Portada" style="border: 2px solid black; width: 600px; margin-left: 100px">
+<img src="images/portada.png" alt="Portada" style="border: 2px solid black; width: 400px; margin-left: 100px">
 :::
 :::
 
@@ -916,8 +921,10 @@ float: Mejora el posicionamiento de objetos flotantes como tablas y figuras.
 
 :::: {.columns}
 ::: {.column}
-<div style="padding: 20px;">
+<div style="padding: 5px;">
 </div>
+
+::: {.small}
 
 ``` latex
 \section{Contenido}
@@ -995,9 +1002,11 @@ dentro del texto $\sqrt{x^2+1}$
 ```
 :::
 
+:::
+
 
 ::: {.column}
-<img src="images/contenido.png" alt="Portada" style="border: 2px solid black; width: 600px; margin-left: 100px">
+<img src="images/contenido.png" alt="Portada" style="border: 2px solid black; width: 400px; margin-left: 100px">
 :::
 ::::
 
@@ -1005,6 +1014,7 @@ dentro del texto $\sqrt{x^2+1}$
 
 El texto en Latex se escribe directamente, si es que no se le desea asignar algún formato.
 
+::: {.small}
 ```latex
 El término neolatino 'Plantae' y el castellano 'plantas' 
 derivan del latín planta (brote, retoño), plantare 
@@ -1014,12 +1024,13 @@ ser plantado en el suelo o en un sustrato; sin embargo,
 podemos ver excepciones en algunos briófitos y en la angiosperma
 lenteja de agua, que no están fijos, pero los consideramos plantas.
 ```
+:::
 
 <br>
 
 
 :::{style="border: 2px solid black"}
-![](images/texto_planta_uno.png){width="100%" fig-align="center"}
+![](images/texto_planta_uno.png){width="70%" fig-align="center"}
 :::
 
 
@@ -1028,13 +1039,16 @@ lenteja de agua, que no están fijos, pero los consideramos plantas.
 
 Para destacar y darle un formato especifico al texto anterior existen múltiples comandos, siendo los principales 
 
+::: {.small}
 ``` text
 \textbf{Texto en Negrita}
 \textit{Texto en Cursiva}
 ```
+:::
 
 Ajustando el texto anterior
 
+::: {.small}
 ```latex
 El término neolatino \textit{'Plantae'} y el castellano \textit{'plantas'} 
 derivan del latín \textbf{planta} (brote, retoño), \textbf{plantare} 
@@ -1044,15 +1058,17 @@ ser plantado en el suelo o en un sustrato; sin embargo,
 podemos ver excepciones en algunos \textbf{briófitos} y en la \textbf{angiosperma}
 lenteja de agua, que no están fijos, pero los consideramos plantas.
 ```
+:::
+
 <br>
 
-![](images/texto_con_formato.png){width="70%" fig-align="center" style="border: 2px solid black"}
+![](images/texto_con_formato.png){width="70%" fig-align="center"}
 
 ## Parrafos
 
 Para separar párrafos en LaTeX, basta con colocar una linea en blanco entre párrafos.
 
-
+::: {.small}
 ```latex
 ...sin embargo, podemos ver excepciones en algunos \textbf{briófitos} y 
 en la \textbf{angiosperma} lenteja de agua, que no están fijos, pero 
@@ -1065,7 +1081,9 @@ características comunes, por lo que este nuevo reino no admite como
 miembros a otros organismos que no están relacionados con las plantas
 terrestres, como sucede con las bacterias, los hongos y las protistas en general.
 ```
-<div style="padding: 20px;">
+:::
+
+<div style="padding: 2px;">
 </div>
 
 ::: box1
@@ -1179,7 +1197,7 @@ Si bien en $\LaTeX$ requiere un archivo `.bib` que guarde las referencias que ut
 
 Para incorporar la bibliografía al texto incluímos:
 
-```{latex}
+```latex
 \bibliographystyle{plain}
 \bibliography{refs}
 ```
@@ -1325,6 +1343,7 @@ Para esto se puede usar un template o desde cero.
 
 ## Código python en R
 
+::: {.small}
 El paquete [reticulate](https://rstudio.github.io/reticulate/) nos permite ejecutar código `Python` en nuestros archivos R.
 
 1. Instalamos y cargamos el paquete
@@ -1374,7 +1393,8 @@ py$Psq(3)
 . . .
 
 ::: box1
-También es posible ejecutar código R en Python utilizando la libraría [rpy2](https://rpy2.github.io/)
+También es posible ejecutar código R en Python utilizando la librería [rpy2](https://rpy2.github.io/)
+:::
 :::
 
 ## Programando en R
@@ -1385,18 +1405,22 @@ En lo que resta del curso, asumiremos que se tiene un nivel básico de R; esto e
 
 Para una introducción a R, ver [Introducción a R](https://cran.r-project.org/doc/contrib/R-intro-1.1.0-espanol.1.pdf) del **R Development Core Team**
 
-![](images/lecture_3/workflow_meme.png){width=40% fig-align="center"}
+![](images/workflow_meme.png){width=40% fig-align="center"}
 
 
 ## Tipos de Datos
 
+::: {.small}
 > Cada objeto en R es de un tipo base y sólo **R-core** puede crear nuevos tipos
 
 ### Tipos de datos base
 
 > Existen 5 tipos de datos base: `double`, `integer`, `complex`, `logical` y `character`. Estos también pueden ser tipo `NULL`.
 
-Sin importar la complejidad del análisis, **en R todos los datos son interpretado como alguno de estos tipos base**
+Sin importar la complejidad del análisis, **en R todos los datos son interpretados como alguno de estos tipos base**
+:::
+
+---
 
 ```{r}
 #| echo: true
@@ -1408,7 +1432,10 @@ typeof('ifop')
 typeof(NULL)
 ```
 
+
 ## Estructuras de Datos
+
+::: {.small}
 ### Matrices (arreglos)
 
 > Una característica distintiva de las matrices es que todos los valores son del mismo tipo de dato
@@ -1416,6 +1443,9 @@ typeof(NULL)
 ### Vectores y coerción de tipos 
 
 > Los vectores son matrices 1-dimensionales.
+:::
+
+---
 
 :::{.fragment}
 ```{r}
@@ -1428,6 +1458,7 @@ vector_char
 typeof(vector_char)
 ```
 :::
+
 
 :::{.notes}
 Esto permite un cálculo eficiente y matemáticas matriciales. La rigurosidad también tiene unas consecuencias realmente importantes que introducen otro concepto clave en R, el de coerción.
@@ -1454,6 +1485,8 @@ ex
 
 > En lo anterior, se realizó una coerción de tipo. No tener claridad de cómo funciona esto, es lo que usualmente dificulta programar correctamente un código en R.
 
+---
+
 . . .
 
 **La coerción ocurre cuando ingresamos datos de distinto tipo en un objeto que sólo permite que sus valores sean de un sólo tipo**
@@ -1466,7 +1499,9 @@ ex
 
 *Leemos `->` como "puede ser transformado en"*
 
-## Ejemplos de coerción
+
+
+## Ejemplos de coerción {.small}
 
 ### logical -> character
 
@@ -1506,6 +1541,8 @@ as.logical(as.numeric(chars))
 as.numeric(c("FALSE", TRUE))
 ```
 :::
+
+
 
 ## Listas
 
@@ -1698,16 +1735,19 @@ tibble::tibble(
 :::
 
 :::{.column}
+::: {.small}
 > El paquete **readr** contiene funciones simples y consistentes para importar datos guardados como documentos de archivo sin formato. Ofrece una alternativa a las funciones básicas de R.
+:::
 :::
 ::::
 
-
+::: {.small}
 Entre sus principales ventajas están:
 
 - Es ~10 veces más rápido que las funciones de lectura de datos de R base.
 - Entre datos en formato tibble
 - Tiene configuraciones más intuitivas por defecto: No nombres por fila y no `stringsAsFactors = TRUE`
+:::
 
 ## Funciones de lectura
 
@@ -1754,7 +1794,7 @@ sparklyr | datos cargados en spark
 ::::{.columns}
 
 :::{.column}
-![](images/lecture_3/dplyr.png){width=40% fig-align="center"}
+![](images/dplyr.png){width=40% fig-align="center"}
 :::
 
 :::{.column}
@@ -1794,10 +1834,13 @@ Entre las funciones más utilizadas en este paquete se encuentras:
 :::
 
 :::{.column}
+::: {.small}
 > El paquete **ggplot2** es un sistema para crear gráficos de manera declarativa. Se provee los datos, se configura como relacionar las variables a lo elementos estéticos, que estilo de gráfico se desea y el paquete hace el resto.
+:::
 :::
 ::::
 
+::: {.small}
 En general, la estructura de un gráfico de ggplot es:
 
 ```{r}
@@ -1808,7 +1851,8 @@ ggplot(data.frame, aes(nombres_de_columna)) + geom_algo(argumentos,
 ```
 
 :::box3
-Los gráficos creados con ggplot2 se ha vuelto el estándar para las investigaciones reproducibles. EXisten [múltiples extensiones](https://exts.ggplot2.tidyverse.org/gallery/) que complementan a ggplot2. También hay un [repositorio](https://github.com/erikgahner/awesome-ggplot2) que los pone a disposición.
+Los gráficos creados con ggplot2 se ha vuelto el estándar para las investigaciones reproducibles. Existen [múltiples extensiones](https://exts.ggplot2.tidyverse.org/gallery/) que complementan a ggplot2. También hay un [repositorio](https://github.com/erikgahner/awesome-ggplot2) que los pone a disposición.
+:::
 :::
 
 ## ggplot2
@@ -2099,9 +2143,10 @@ penguins %>%
 ## {background-image="images/himalaya.jpeg"}
 
 ::: box1
+::: {.small}
 Utilizaremos un conjunto de datos de del proyecto [`tidytuesday`](https://github.com/rfordatascience/tidytuesday) como nuestro objeto de estudio; [Himalayan Climbing Expeditions](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md).
 :::
-<br>
+:::
 <br>
 <br>
 <br>
@@ -2113,9 +2158,11 @@ Utilizaremos un conjunto de datos de del proyecto [`tidytuesday`](https://github
 
 
 ::: box1
+::: {.small}
 El conjunto de datos contiene un gran registro (entre 1905-2019) de varios *peaks* de la cordillera del Himalaya. las expediciones realizadas e integrantes de cada expedición.
 
 **Objetivo: Predecir la probabilidad de que una expedición tenga un final letal.**
+:::
 :::
 
 ## Proceso usual de creación de modelos
@@ -2217,7 +2264,7 @@ El contenido del documento puede estar escrito utilizando diferentes formatos, e
 
 # Markdown
 
-![](images/Markdown_logo.png){width="30%" fig-align="center"}
+![](images/Markdown_logo.png){width="10%" fig-align="center"}
 
 
 ## Formato de Texto
