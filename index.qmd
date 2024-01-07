@@ -420,6 +420,23 @@ gitcreds::gitcreds_set()
 :::box2
 [Introducción a git](https://learngitbranching.js.org/?locale=es_ES)
 :::
+
+
+::: {.notes}
+**Potencial: ** lista de características que un flujo de trabajo con Git/GitHub aporta a los proyectos de ciencia de datos y que serían útiles para proyectos de investigación:
+
+1. Respaldar datos empujándolos a una plataforma Git, hacia un repositorio público o privado.
+2. Usar fácilmente diferentes computadoras para trabajar en el mismo proyecto (contigo o con colaboradores).
+3. Llevar un registro de contribuciones.
+4. Facilitar el uso de plantillas de carpetas para ayudar con la organización de archivos, ver Organización de Datos.
+5. Usar herramientas de plataformas Git para la gestión de proyectos.
+6. Utilizar plataformas Git para divulgación, incluso cuando el repositorio es privado (usando la Wiki).
+7. Crear un sitio web asociado bajo la misma organización en la plataforma Git.
+
+**Problemas**: Git no funciona bien cuando hay muchos datos o cuando los datos son grandes. Cuando se espera que el proyecto sea grande, es necesario establecer una herramienta diferente para evitar crear repositorios poco prácticos. Algunas de estas herramientas dificultan el acceso o la visualización de tus archivos, por lo que es importante planificar con anticipación qué herramienta se adapta mejor a tus necesidades. 
+
+:::
+
 ## Estructura de un repositorio
 
 ![](images/file-management-manual.jpg){width=60% fig-align="center"}
