@@ -145,6 +145,15 @@ La ciencia abierta u *open science* tiene por objetivo transformar la investigac
 
 ![](images/open-access-citations.jpg){width=70% fig-align="center"}
 
+::: {.notes}
+En el 2016 se efectuó un estudio ([McKiernan et al 2016](https://elifesciences.org/articles/16800)) en donde se muestra el *índice de citación relativa* que corresponde a la tasa de citaciones medias para artículos publicados en revistas científicas de  ciencia abierta versus las citaciones para revistas. Esto para 19 disciplinas de la ciencia
+
+Referencias
+McKiernan, E. C., Bourne, P. E., Brown, C. T., Buck, S., Kenall, A., Lin, J., ... & Yarkoni, T. (2016). How open science helps researchers succeed. elife,5, e16800.
+:::
+
+
+
 ## Datos Abiertos
 
 Solo una proporción muy pequeña de los datos originales se publica en revistas convencionales o investigaciones públicas. A pesar de las políticas existentes sobre el archivo de datos, en la actualidad, los datos se almacenan principalmente en archivos privados, no en repositorios institucionales seguros, y se pierde a ellos por parte del público general.
@@ -435,6 +444,11 @@ gitcreds::gitcreds_set()
 
 **Problemas**: Git no funciona bien cuando hay muchos datos o cuando los datos son grandes. Cuando se espera que el proyecto sea grande, es necesario establecer una herramienta diferente para evitar crear repositorios poco prácticos. Algunas de estas herramientas dificultan el acceso o la visualización de tus archivos, por lo que es importante planificar con anticipación qué herramienta se adapta mejor a tus necesidades. 
 
+**Interactive_visual_Git**
+Uno de los mayores desafíos para comenzar con Git puede ser comprender la estructura de archivos y directorios y la complejidad de las ramas, commits y remotos, y cómo interactúan, particularmente en la línea de comandos con representaciones visuales limitadas. A menudo es confuso, incluso para usuarios avanzados, traducir de un diagrama conceptual a los comandos Git correctos necesarios para lograr los resultados deseados.
+
+La herramienta LearnGitBranching ofrece una introducción interactiva y visual a Git. Esta herramienta interactiva basada en navegador incluye tutoriales y te permite practicar el uso de Git a través de un “repositorio” virtual y un área de pruebas. Al completar los desafíos integrados, familiarizarse con los comandos de Git se convierte más en un juego que en una tarea.
+
 :::
 
 ## Estructura de un repositorio
@@ -492,6 +506,13 @@ Esto creará un repositorio con el nombre del proyecto
 ## Control de versiones para datos
 
 ![](images/data-provenance.jpg){width=60% fig-align="center"}
+::: {.notes}
+
+Hablamos de que controlar las versiones de los componentes de proyectos en evolución podría ayudar a hacer el trabajo más organizado, eficiente, colaborativo y reproducible. Sin embargo, muchos proyectos científicos no solo contienen código, manuscritos u otros archivos de tamaño pequeño, sino que contienen archivos más grandes como grandes conjuntos de datos, resultados de análisis o archivos binarios (presentaciones, manuscritos, PDFs) que pueden cambiar o actualizarse en un proyecto al igual que otros componentes de texto de tamaño pequeño. En este capítulo, discutimos por qué y cómo hacer versionado de datos, especialmente por qué Git no es adecuado para el versionado de datos y qué se puede hacer al respecto.
+
+:::
+
+
 
 ## Importancia del control de versiones para datos
 
