@@ -16,7 +16,7 @@ author:
     orcid: 0000-0001-7577-2775
     email: francisco.plaza.v@usach.cl
     affiliations: Universidad de Santiago de Chile
-date: last-modified
+date: 01/09/2024
 lang: es
 logo: images/logo_usm.png
 bibliography: refs.bib
@@ -755,11 +755,31 @@ Replicar los ambientes computacionales tendrá un potencial impacto en:
 
 ![](images/piramid.png){width=40% fig-align="center"}
 
+::: {.notes}
+**Investigadores**
+Los entornos de trabajo de los investigadores va cambiando en la medida que los software se van actualizando, si es que instalan nuevo software o  usan distintos computadores, por ejemplo. Si no se logra capturar el ambiente que contiene el proyecto y los investigadores necesitan volver a su proyecto después de meses o años (como es común en la investigación), no van a poder replicar los resultados o no podrán tener la suficiente confianza que los resultados son los mismos. No van a tener forma de saber qué cambios se han producido en un ambiente de investigación específico y qué impacto podrían tener esos cambios en su capacidad para ejecutar el código y en los resultados.
+
+**Colaboradores**
+Como estamos en un entorno de colaboración, y al trabajar en varios ambientes computacionales abre una posibilidad no menor de encontrar muchos  errores. Entonces, el tratar de solucionar este tipo de problemas puede ser ser un proceso bastante lento y frustrante, sobre todo si los investigadores tienen que averiguar cuáles son las diferencias entre los ambientes computacionales de cada uno y lo que puede causar los errores. En este sentido, algunos errores pueden no ser detectados y pueden afectar potencialmente los resultados.
+
+**Pirámide**
+La imagen muestra una pirámide que está dividida en cuatro niveles que representan diferentes componentes de un proyecto de investigación. La base de la pirámide, el "Ambiente", es la base sobre la que se construye todo el proyecto. Justo encima, hay dos bloques que forman el segundo nivel: "Código" y "Datos", que son esenciales para el proceso de investigación y están apoyados por el ambiente subyacente. El tercer nivel tiene que ver con la "Documentación", que abarca los dos bloques inferiores. Y finalmente, en la cima de la pirámide se encuentra "Artículo", lo que  p representa la meta final de la investigación, que es publicar un artículo científico.
+:::
+
+
 ## Capturando el ambiente computacional
 
 ### Categorías:
 
 ![](images/computational-environments.jpg){width=60% fig-align="center"}
+
+::: {.notes}
+Hay varias maneras de capturar entornos computacionales. Acá mostramos algunos Sistemas de Gestión de Paquetes, Binder, Máquinas Virtuales y Contenedores. Cada uno tiene sus ventajas y desventajas, y la opción más apropiada va a depender de la naturaleza del  proyecto.
+
+Podemos dividirlos en dos categorías: aquellos que capturan solo el software y sus versiones usados en un entorno (Sistemas de Gestión de Paquetes de ANACONDA), y aquellos que replican un entorno computacional completo, incluyendo el sistema operativo y configuraciones personalizadas (Máquinas Virtuales y Contenedores).
+
+Otra forma de clasificarlos es por cómo se presenta la investigación reproducida al que la reproduce. Usar Binder o una Máquina Virtual crea un resultado mucho más gráfico, del tipo GUI. En cambio, los resultados de Contenedores y Sistemas de Gestión de Paquetes de ANACONDA se interactúan más fácilmente a través de la línea de comandos.
+:::
 
 ## Sistema de admininistración de paquetes
 
@@ -831,6 +851,11 @@ La diferencia radica en que una máquina virtual incluye un sistema operativo ju
 
 ![](images/binderhub.svg){width=60% fig-align="center"}
 
+::: {.notes}
+BinderHub, usa tecnología en la nube que es la queda vida a Binder. 
+
+La arquitectura de BinderHub a grosso modo. BinderHub junta todas las herramientas tecnológicas que trabajan en armonía para crear entornos de computación personalizados y listos para usar en la nube. Acá se puede configurar todo el ambiente necesario para que el proyecto funcione como corresponda. Se necesitan algunos recursos, claro, como buen espacio en la nube, un poco de conocimiento en tecnologías de contenedores y  configuración.
+:::
 
 ## Caso práctico
 
