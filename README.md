@@ -5,6 +5,9 @@
 - **Quarto**: [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
 - **Git**: [https://git-scm.com/downloads](https://git-scm.com/downloads)
 - **Github**: [https://desktop.github.com/](https://desktop.github.com/)
+
+## Grabaciones
+- **Sesión I**: [Video](https://us02web.zoom.us/rec/share/bxk_EHb-0jNVhnfGaHB3S55sZ3pEzGSssw0NyjV3pDYiVY_XJGV6mtRYlAV71kCN.fhNCDMcaJ6io5k0d?startTime=1704718698000)
 ## Módulos
 ### Sesión I
 - **Modulo I**: Introducción a la Investigación Reproducible 
