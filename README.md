@@ -7,8 +7,7 @@
 - **Github**: [https://desktop.github.com/](https://desktop.github.com/)
 
 ## Grabaciones
-- **Sesión I**: [Video I](https://us02web.zoom.us/rec/share/bxk_EHb-0jNVhnfGaHB3S55sZ3pEzGSssw0NyjV3pDYiVY_XJGV6mtRYlAV71kCN.fhNCDMcaJ6io5k0d?startTime=1704718698000
-Passcode: qX&B2u!1)
+- **Sesión I**: [Video](https://us02web.zoom.us/rec/share/bxk_EHb-0jNVhnfGaHB3S55sZ3pEzGSssw0NyjV3pDYiVY_XJGV6mtRYlAV71kCN.fhNCDMcaJ6io5k0d?startTime=1704718698000)
 ## Módulos
 ### Sesión I
 - **Modulo I**: Introducción a la Investigación Reproducible 
