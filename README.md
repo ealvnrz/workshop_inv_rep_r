@@ -1,5 +1,10 @@
 # Workshop Investigación Reproducible con R
-
+## Software 
+- **R**: [https://cran.dcc.uchile.cl/](https://cran.dcc.uchile.cl/)
+- **RStudio**: [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+- **Quarto**: [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+- **Git**: [https://git-scm.com/downloads](https://git-scm.com/downloads)
+- **Github**: [https://desktop.github.com/](https://desktop.github.com/)
 ## Módulos
 ### Sesión I
 - **Modulo I**: Introducción a la Investigación Reproducible 
