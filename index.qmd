@@ -29,6 +29,23 @@ bibliography: refs.bib
 
 ![](images/reproducibility.jpg){width=70% fig-align="center"}
 
+::: {.notes}
+Bienvenida
+
+Exploraremos un concepto que está cobrando gran relevancia en la comunidad científica: la Investigación reproducible
+
+Podríamos decir que es el "hacer de nuevo" en la ciencia.
+
+**Decir lo siguiente antes de pasar a reproducibilidad y replicabilidad.**
+
+¿Por qué es importante?
+
+Porque la reproducibilidad es uno de los pilares de la confianza en la ciencia. Permite validar los resultados y asegura que el conocimiento científico es sólido y fiable.
+
+En un mundo ideal, toda investigación sería reproducible, pero en la práctica, nos encontramos con desafíos. Estos pueden incluir desde la disponibilidad y el acceso a los datos originales, hasta la transparencia en los métodos utilizados.
+
+:::
+
 ## Investigación Reproducible
 
 ::: box1
@@ -54,14 +71,20 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 ::: {.fragment .fade-in-then-out}
 ![](images/quarto.png){width=100% fig-align="center"}
 :::
-
-::: {.fragment .fade-in-then-out}
-![](images/flex.png){width=100% fig-align="center"}
 :::
 
-::: {.fragment .fade-in-then-out}
-![](images/shiny.png){width=30% fig-align="center"}
-:::
+::: {.notes}
+
+A lo largo de este workshop, vamos a utilizar herramientas como:
+
+- GIT - GitHub: Para mantener el control de versiones de nuestra investigación
+
+- LaTeX: Para la redacción de documentos científicos
+
+- R y RStudio: Para hacer los análisis y como plataforma base
+
+- Quarto: Para integrar análisis y generación de distintos documentos
+
 :::
 
 
@@ -70,6 +93,34 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 ### Reproducible
 
 > Los autores entregan todos los datos necesarios y los códigos computacionales para realizar el análisis nuevamente, recreando los resultados.
+
+::: {.notes}
+
+**Reproducible**
+
+> Los autores entregan todos los datos necesarios y los códigos computacionales para realizar el análisis nuevamente, recreando los resultados.
+
+Imaginen que han leído un artículo científico que presenta resultados innovadores. Si quieren verificar estos resultados por ustedes mismos, necesitarán acceder a dos elementos clave: los datos y los códigos computacionales que se utilizaron. Cuando los autores proporcionan estos materiales y cualquier persona con los recursos y la experiencia necesaria puede usarlos para recrear el análisis y llegar a los mismos resultados, decimos que el estudio es reproducible.
+
+**Esto no solo es esencial para validar el trabajo original, sino también para construir sobre él.**
+
+
+**Replicable**
+
+>Un estudio que llega a los mismos hallazgos científicos que otro estudio, recolectando nuevos datos (posiblemente con diferentes métodos) y completando nuevos análisis.
+
+Un estudio es replicable cuando podemos llegar a los mismos hallazgos científicos a través de un nuevo estudio, que ha recolectado nuevos datos, tal vez incluso con diferentes metodologías. Si los hallazgos se mantienen a pesar de estas diferencias, ganamos una mayor confianza en la veracidad y universalidad de los resultados.
+
+
+**La diferencia fundamental entre estos términos radica en la novedad de los datos y los métodos. Mientras que la reproducibilidad se centra en la reutilización de los mismos datos y métodos para verificar los resultados, la replicabilidad implica la generación de nuevos datos y la posible aplicación de nuevos métodos para validar los hallazgos.**
+
+
+> En la era de la Ciencia 2.0, abogamos por una ciencia más transparente y accesible. La capacidad de reproducir y replicar estudios fomenta una investigación más rigurosa y confiable, promueve la innovación y protege contra el sesgo y el error. Al adoptar estos principios, nos movemos hacia un futuro donde la ciencia es abierta por defecto y donde la integridad y la confiabilidad de la investigación son la norma, no la excepción.
+
+Existen grados, categorías o clases de reproduciblidad:
+
+:::
+
 
 ### Replicable
 
@@ -85,6 +136,18 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 - **Reproducibilidad Estadística**: Cuando se proporciona información detallada, por ejemplo, sobre la elección de pruebas estadísticas, parámetros del modelo y valores de umbral. Esto se relaciona principalmente con el registro previo del diseño del estudio para evitar la práctica de *p-value hacking* y otras manipulaciones.
 
 
+::: {.notes}
+
+- **Reproduciblidad Computacional**: Transparencia completa en lo que respecta al código, software, hardware y los detalles específicos de la implementación.
+
+- **Reproduciblidad Empírica**: Configuraciones y protocolo del experimento realizado.
+
+- **Reproducibilidad estadística**: Proporciona transparencia en la elección de pruebas estadísticas, los parámetros del modelo y los valores de umbral. Es fundamental para abordar problemas como el "p-hacking", donde se manipulan los datos o las pruebas hasta obtener un resultado "significativo".
+
+**Al pre-registrar nuestro diseño de estudio, demostramos que hemos elegido nuestras pruebas estadísticas basadas en un plan preconcebido, no en los datos que surgieron.**
+
+:::
+
 ## Reproducibilidad
 
 ![](images/reproducible-matrix.jpg){width=70% fig-align="center"}
@@ -97,6 +160,10 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 - **Robusto**: un resultado es rebusto cuando el mismo conjunto de datos se somete a diferentes flujos de trabajo de análisis para responder a la misma pregunta de investigación (por ejemplo, una flujo de trabajo escrito en R y otro escrita en Python) y se produce una respuesta cualitativamente similar o idéntica. Los resultados robustos muestran que el trabajo no depende de las especificidades del lenguaje de programación elegido para realizar el análisis.
 
 - **Generalizable**: la combinación de hallazgos replicables y robustos nos permite formar resultados generalizables. Hay que tener en cuenta que ejecutar un análisis en una implementación de software diferente y con un conjunto de datos diferente no proporciona resultados generalizados. Habrá muchos más pasos para saber qué tan bien se aplica el trabajo a todos los diferentes aspectos de la pregunta de investigación. La generalización es un paso importante para comprender que el resultado no depende de un conjunto de datos en particular ni de una versión particular del código de análisis.
+
+Cuando hablamos de la robustez y la generalización, estamos yendo un paso más allá en nuestra búsqueda de la verdad científica.
+
+**No es solo que otros puedan reproducir lo que hemos hecho o replicar los estudios para obtener los mismos resultados; es también que esos resultados se mantengan bajo nuevas pruebas y en diferentes contextos.**
 
 :::
 
@@ -111,12 +178,59 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 |----|----|
 | Historial completo del proyecto | Incentivos limitados |
 | Colaboración y Revisión | Sesgo de las investigaciones hacia hallazgos novedosos |
-| Evita la desinformación | Mayores estándares |
-| Escritura eficiente | Se aplican mayores estándares a las investigaciones reproducibles |
-| Reconocimiento justo | No es considerado para las promociones |
-| Asegura la continuidad del trabajo |  Variabilidad en el rendimiento de los software utilizados |
-| | Que una investigación sea reproducible no significa que esté correcta |
-| | Toma más tiempo|
+| Evita la desinformación | Se aplican mayores estándares a las investigaciones reproducibles |
+| Escritura eficiente | No es considerado para las promociones |
+| Reconocimiento justo | Variabilidad en el rendimiento de los software utilizados |
+| Asegura la continuidad del trabajo | Que una investigación sea reproducible no significa que esté correcta |
+| | Toma más tiempo |
+:::
+
+::: {.notes}
+**Ventajas**
+
+- Historial Completo del Proyecto
+
+>La investigación reproducible debe tener una historia y descripción completa del proceso de planificación y desarrollo del proyecto. Esto incluye información sobre los datos, herramientas, métodos, códigos y documentación utilizados en el proyecto de investigación. Al almacenar un historial completo de nuestro trabajo, podemos garantizar la sustentabilidad de la investigación, el justo reconocimiento y la utilidad de nuestro trabajo.
+
+- Colaboración y Revisión
+
+- Facilita la colaboración y proceso de revisión.
+
+>Al diseñar flujos de trabajo reproducibles y compartirlos con los diferentes equipos de nuestro proyecto de investigación, podemos permitir que otros desarrollen una comprensión profunda de nuestro trabajo. Esto los alienta a revisar nuestros métodos, probar nuestro código, proponer cambios útiles y hacer contribuciones reflexivas para desarrollar aún más nuestro proyecto. Los flujos de trabajo reproducibles facilitan enormemente el proceso de revisión por pares al permitir que los revisores accedan a las diferentes partes de los proyectos que son necesarias para validar los resultados de la investigación.
+
+
+- Evita la desinformación
+
+>La falta de reproducibilidad es uno de los principales factores que conducen a las retractaciones de estudios de investigación. Al trabajar de manera reproducible, podemos desarrollar trabajos de investigación validados, evitar información errónea que pueda limitar la replicabilidad de nuestro trabajo y publicar resultados de investigación precisos
+
+- Escritura eficiente
+
+>Los análisis bien documentados nos ayudan a mantener un fácil acceso a todos los resultados generados dentro de un proyecto que se pueden redactar de manera eficiente. Si trabajan en equipo, los colaboradores pueden obtener fácilmente reconocimiento en términos de autoría por sus contribuciones.
+
+- Reconocimiento justo
+
+>La aplicación de prácticas de reproducibilidad por separado en diferentes partes del proyecto, como datos, códigos y scripts ejecutables de forma independiente, protocolos e informes, permite a otros investigadores probar y reutilizar nuestro trabajo en su investigación y brinda un reconocimiento justo por nuestro trabajo.
+
+- Asegura la continuidad del trabajo
+
+>Al seguir las pautas de reproducibilidad, podemos comunicar fácilmente nuestro trabajo con diferentes partes interesadas. Este aspecto de la reproducibilidad aumenta la utilidad de nuestra investigación al permitir que otros se basen fácilmente en nuestros resultados y reutilicen nuestros materiales de investigación. Esto asegura la continuidad de una idea de investigación e incluso puede encontrar nuevas aplicaciones en otros contextos.
+
+
+**Dificultades en la Investigación Reproducible**
+
+- Incentivos limitados para dar evidencia de las investigaciones
+
+- Sesgo de las investigaciones hacia hallazgos novedosos
+
+> Los resultados novedosos no son necesariamente precisos o interesantes, ¡pero se premian en el mundo académico! Los trabajos que no encuentran relaciones estadísticamente significativas son difíciles de publicar, sobre todo si los resultados no reproducen hallazgos publicados anteriormente. (Eso incluye hallazgos estadísticamente significativos que van en dirección opuesta a trabajos ya publicados).
+
+- No es considerado para promociones
+
+- Variabilidad en el rendimiento de los software utilizados
+
+- Una investigación sea reproducible no significa que esté correcta
+
+- Toma más tiempo
 :::
 
 
@@ -128,8 +242,6 @@ Es la práctica de conducir estudios científicos o basados en datos de tal mane
 
 ![](images/evolution-open-research.png){width=60% fig-align="center"}
 
-["1.500 scientist lift the lid on reproducibility"](https://www.nature.com/articles/533452a)
-
 ::: {.notes}
 La ciencia abierta u *open science* tiene por objetivo transformar la investigación haciéndola más reproducible, transparente, reutilizable, colaborativa, responsable y accesible para la sociedad. Para que la investigación sea considerada *abierta*, cada elemento del proceso de investigación debe:
 
@@ -140,16 +252,29 @@ La ciencia abierta u *open science* tiene por objetivo transformar la investigac
 - Sea transparente: con metadatos apropiados para proporcionar declaraciones claras de cómo se produjo el resultado de la investigación y qué contiene.
 :::
 
+## Crisis de la reproducibilidad?
+
+![](images/paper_nature.png){scale=60% fig-align="center"}
+
+["1.500 scientist lift the lid on reproducibility"](https://www.nature.com/articles/533452a) [@baker20161]
+
+::: {.notes}
+Un artículo en Nature del año 2016 sobre la reproducibilidad en la ciencia indica que más del 70% de los investigadores han fallado en reproducir experimentos de otros y más de la mitad en reproducir los suyos. A pesar de la percepción de una crisis de reproducibilidad, la mayoría aún confía en la literatura publicada. Los esfuerzos para mejorar la reproducibilidad varían entre disciplinas y a menudo enfrentan obstáculos como la reticencia de las revistas a publicar replicaciones fallidas. Sin embargo, hay un amplio apoyo para mejorar las prácticas, incluyendo un diseño experimental más robusto y mejor mentoría.
+:::
+
 
 ## Difusión y citas
 
-![](images/open-access-citations.jpg){width=70% fig-align="center"}
+![](images/paper_open_science.png){scale=50% fig-align="center"}
+
+["Point of View: How open science helps researchers succeed"](https://elifesciences.org/articles/16800) [@mckiernan2016open]
+
 
 ::: {.notes}
-En el 2016 se efectuó un estudio ([McKiernan et al 2016](https://elifesciences.org/articles/16800)) en donde se muestra el *índice de citación relativa* que corresponde a la tasa de citaciones medias para artículos publicados en revistas científicas de  ciencia abierta versus las citaciones para revistas. Esto para 19 disciplinas de la ciencia
+En el 2016 se efectuó un estudio ([McKiernan et al 2016](https://elifesciences.org/articles/16800)) en donde se muestra el *índice de citación relativa* que corresponde a la tasa de citaciones medias para artículos publicados en revistas científicas de  ciencia abierta versus las citaciones para revistas. Esto para 19 disciplinas de la ciencia.
 
-Referencias
-McKiernan, E. C., Bourne, P. E., Brown, C. T., Buck, S., Kenall, A., Lin, J., ... & Yarkoni, T. (2016). How open science helps researchers succeed. elife,5, e16800.
+Acá podemos ver que los artículos puiblicados como ciencia abierta tienen hasta casi 3 veces el número de citas que los que no son de ciencia abierta. En la parte superior del gráfico, para ciencias aplicadas y física.
+
 :::
 
 
@@ -177,7 +302,10 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 
 - Los investigadores no saben qué repositorio usar para diferentes tipos de datos (aumento del 33 %)
 
+
+**Y en este sentido, para ayudar a solucionar estas brechas, podemos utilizar software de código abierto**
 :::
+
 
 ## Software de Código abierto
 
@@ -205,12 +333,28 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 :::
 ::::
 
+::: {.notes}
+Vamos a hablar un poco respecto a herramientas para la investigación reproducible
+
+**Re-usable**: Permite a los investigadores tener ventaja del trabajo adelantado de los demás. A muchos nos ha pasado que no podemos implementar algún código y buscamos en internet en sitios como stack-exchange o stack-overflow, GitHub, etc. El principio es "para qué inventar la rueda, si alguien ya logró inventarla", mejor construir sobre lo ya desarrollado y adaptarlo a nuestro contexto
+
+**Comprobable**: Donde los proyectos pueden permitir a la comunidad el poder leer los códigos y hacer pruebas de su funcionamiento. De esta manera encontrar y corregir errores más rápido y de la misma forma, otros investigadores pueden validar sus resultados
+
+**Colaborativo**: Además de los puntos anteriores, que ya lo hacen colaborativo. Permite trabajar en proyectos mucho más demandantes, que no podrían ser llevados a cabo por un sólo investigador. Hay ejemplos de desarrollos como por ejemplo las librerías de python como scipy o numpy, o el mismo tensorflow que es ampliamente utilizado en machine learning y deep learning.
+:::
+
+
 
 
 ## Espectro de Reproducibilidad
 
 ![](images/Reproducible.png){width=60% fig-align="center"}
 
+::: {.notes}
+La imagen muestra la clasificacion de los distintos tipos de investigación científica en un rango que va desde "No reproducible" hasta el "Estándar de oro". En el extremo izquierdo del espectro se encuentra sólo la publicación, indicando un nivel bajo de reproducibilidad. A medida que avanzamos en el espectro, se agregan componentes adicionales que mejoran la reproducibilidad: "Código", "Código y datos", y luego "Código y datos vinculados y ejecutables". El "Estándar de oro" al final del espectro muestra la "Replicación completa", implicando la máxima reproducibilidad. Este espectro destaca la importancia de compartir no solo las publicaciones, sino también el código y los datos subyacentes para permitir la verificación y replicación completas de los resultados científicos.
+:::
+
+# [Repositorio para este curso](https://github.com/ealvnrz/workshop_inv_rep_r)
 
 # Sofware necesarios
 
@@ -238,13 +382,13 @@ Muchos investigadores encuentran difícil compartir datos. Encuestas recientes r
 
 ![](images/git_github.png){width=45% fig-align="center"}
 
+- Cuenta en [GitHub](https://github.com/)
+
 - [Git](https://git-scm.com/downloads)
 
 - [Github CLI](https://cli.github.com/)
 
 - [Github Desktop](https://desktop.github.com/)
-
-- [Repositorio para este curso](https://github.com/ealvnrz/workshop_inv_rep_r)
 
 
 # Módulo 2: Control de versiones {background-color="#40666e"}
@@ -390,6 +534,14 @@ Supongamos que quiero agregar o probar algo nuevo en un archivo antes de que se 
 Si deseamos tener una control de versión **LOCAL**, debemos crear un proyecto en RStudio
 :::
 
+::: {.notes}
+
+Acá veremos el esquema general del como crear un proyecto para hacer control de versiones.
+
+Esto lo veremos en detalle un poco más adelante con un ejemplo para que ustedes también puedan replicarlo.
+
+:::
+
 ## Conectar RStudio con Github
 
 Para guardar nuestras versiones en Github debemos seguir los siguientes pasos:
@@ -458,7 +610,9 @@ La herramienta LearnGitBranching ofrece una introducción interactiva y visual a
 - [Open Science Framework](https://osf.io/4sdn3/)
 
  
-
+::: {.notes}
+Por ejemplo, Open Science Framework, es una plataforma de código abierto para administración de proyectos de investigación.
+:::
 
 
 ## Conectar RStudio y Github
@@ -506,6 +660,7 @@ Esto creará un repositorio con el nombre del proyecto
 ## Control de versiones para datos
 
 ![](images/data-provenance.jpg){width=60% fig-align="center"}
+
 ::: {.notes}
 
 Hablamos de que controlar las versiones de los componentes de proyectos en evolución podría ayudar a hacer el trabajo más organizado, eficiente, colaborativo y reproducible. Sin embargo, muchos proyectos científicos no solo contienen código, manuscritos u otros archivos de tamaño pequeño, sino que contienen archivos más grandes como grandes conjuntos de datos, resultados de análisis o archivos binarios (presentaciones, manuscritos, PDFs) que pueden cambiar o actualizarse en un proyecto al igual que otros componentes de texto de tamaño pequeño. En este capítulo, discutimos por qué y cómo hacer versionado de datos, especialmente por qué Git no es adecuado para el versionado de datos y qué se puede hacer al respecto.
@@ -1175,7 +1330,8 @@ Santiago de Chile
   <img src="images/ejemplo_jerarquia_texto.png" alt="Portada" style="border: 2px solid black; width: 600px;">
 </p>
 
-## Listados
+
+## Listados {.small}
 Para hacer un listado en LaTeX se tiene que empezar una **"Itemización"** o **"Enumeración"**.
 <div style="padding: 20px;">
 </div>
@@ -1368,6 +1524,12 @@ A \xleftarrow{\text{Izquierda}} B
 :::
 ::::
 
+::: {.notes}
+
+Esta parte será muy importante porque Quarto utiliza mucho la sintáxis para escritura técnica de LaTeX
+
+:::
+
 
 ## Overleaf + GitHub
 
@@ -1439,7 +1601,6 @@ use_python("/home/ealvnrz/anaconda3/bin/python")
 3. Ejecutamos código python
 
 :::{.fragment}
-
 ```{r}
 #| echo: true
 #| eval: false
@@ -1459,12 +1620,12 @@ py$Psq(3)
 ```
 :::
 
-. . .
-
 ::: box1
 También es posible ejecutar código R en Python utilizando la librería [rpy2](https://rpy2.github.io/)
 :::
+
 :::
+
 
 ## Programando en R
 
@@ -1489,7 +1650,7 @@ Para una introducción a R, ver [Introducción a R](https://cran.r-project.org/d
 Sin importar la complejidad del análisis, **en R todos los datos son interpretados como alguno de estos tipos base**
 :::
 
----
+## Tipos de datos base
 
 ```{r}
 #| echo: true
@@ -1497,7 +1658,7 @@ typeof(3.14)
 typeof(1L)
 typeof(3i)
 typeof(TRUE)
-typeof('ifop')
+typeof('USM')
 typeof(NULL)
 ```
 
@@ -1514,7 +1675,8 @@ typeof(NULL)
 > Los vectores son matrices 1-dimensionales.
 :::
 
----
+
+## Estructuras de Datos
 
 :::{.fragment}
 ```{r}
@@ -1554,9 +1716,8 @@ ex
 
 > En lo anterior, se realizó una coerción de tipo. No tener claridad de cómo funciona esto, es lo que usualmente dificulta programar correctamente un código en R.
 
----
 
-. . .
+## Coerción
 
 **La coerción ocurre cuando ingresamos datos de distinto tipo en un objeto que sólo permite que sus valores sean de un sólo tipo**
 
@@ -1695,7 +1856,7 @@ Tidyverse es un sistema coherente de paquetes para manipulación, exploración y
 
 
 :::{.fragment}
-[Artículo original sobre Tidy Data en Journal of Statistical Software](https://www.jstatsoft.org/article/view/v059i10)
+[Artículo original sobre Tidy Data en Journal of Statistical Software](https://www.jstatsoft.org/article/view/v059i10) [@tidy]
 :::
 
 
@@ -2036,7 +2197,7 @@ penguin_boot
 ![](images/rsample.png){.absolute top=10 right=-50 width=20%}
 :::
 
-## Definimiendo modelos
+## Definiendo modelos
 
 :::box3
 Para este ejemplo realizaremos un modelo de regresión logística y un *random forest* para predecir el sexo de los pingüinos.
@@ -2106,7 +2267,7 @@ rf_rs <- penguin_wf %>%
 rf_rs
 ```
 
-## Evaluando los modelo
+## Evaluando los modelos
 
 
 ```{r}
@@ -2139,7 +2300,7 @@ glm_rs %>%
   coord_equal()
 ```
 
-## Probando el modelo
+## Probando el modelo {.small}
 
 ::: box3
 Utilizamos el conjunto de prueba en nuestro modelo lineal
@@ -2173,6 +2334,7 @@ collect_predictions(penguin_final) %>%
   conf_mat(sex, .pred_class)
 ```
 :::
+
 
 ## Detalle del modelo {style="font-size:35px"}
 
@@ -2562,8 +2724,6 @@ Crearemos un mismo documento en distintos formatos
 
 [Awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
-Just a test
-[@Moretti_2011]
 
 # References 
 
