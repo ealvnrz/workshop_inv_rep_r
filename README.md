@@ -8,6 +8,7 @@
 
 ## Grabaciones
 - **Sesión I - Código de acceso `qX&B2u!1`** : [Video](https://us02web.zoom.us/rec/share/bxk_EHb-0jNVhnfGaHB3S55sZ3pEzGSssw0NyjV3pDYiVY_XJGV6mtRYlAV71kCN.fhNCDMcaJ6io5k0d?startTime=1704718698000)
+- **Sesión II - Código de acceso `aQ3v?jhg`**: [Video](https://us02web.zoom.us/rec/share/PH4DofKr2c9z7UCrl6madxFRbIkabgJVVFLLQTF8Wt6wFTwnZUH9XPLHGeDEkpJc.pzLFoHIVLHA056Cw?startTime=1704805194000)
 ## Módulos
 ### Sesión I
 - **Modulo I**: Introducción a la Investigación Reproducible 
