@@ -2,6 +2,7 @@
 library(tidymodels)
 library(palmerpenguins)
 library(esquisse)
+library(ranger)
 
 # Creación de un gráfico para explorar la relación entre la longitud del pico, la longitud de la aleta, el sexo y el peso corporal de los pingüinos, separado por especie.
 penguins %>%
